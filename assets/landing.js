@@ -16,6 +16,7 @@
         navMain: "Main navigation",
         home: "Home",
         imageHub: "Image",
+        imageExpert: "Image Expert",
         text: "Text",
         audio: "Audio",
         video: "Video",
@@ -24,6 +25,25 @@
         heic: "HEIC",
         webp: "WEBP",
         instagram: "Instagram",
+      },
+      homeContent: {
+        heroTitle: "All Conversion Tools In One Place",
+        heroDesc: "Choose the workflow that matches your task. Everything runs in your browser.",
+        listTitle: "What We Provide",
+        toolTitles: ["Image Home", "Image Expert", "Text Converter", "Audio Converter", "Video Converter"],
+        toolDescs: [
+          "Need-based image paths for compression, resize, HEIC, WEBP, and presets.",
+          "Advanced image options and bulk processing for experienced users.",
+          "JSON, CSV/TSV, Markdown, and HTML conversion tools.",
+          "Trim, fade, normalize, and convert audio formats locally.",
+          "Convert format, trim, resize, and extract thumbnails in-browser.",
+        ],
+        startTitle: "Recommended Start Paths",
+        startList: [
+          "First time user: open Image Home.",
+          "Need direct controls: open Image Expert.",
+          "Text, audio, and video each have dedicated workspaces.",
+        ],
       },
       pages: {
         "image-hub": {
@@ -236,6 +256,7 @@
         navMain: "Navegacion principal",
         home: "Inicio",
         imageHub: "Imagen",
+        imageExpert: "Imagen Experto",
         text: "Texto",
         audio: "Audio",
         video: "Video",
@@ -244,6 +265,25 @@
         heic: "HEIC",
         webp: "WEBP",
         instagram: "Instagram",
+      },
+      homeContent: {
+        heroTitle: "Todas las herramientas en un solo lugar",
+        heroDesc: "Elige el flujo que coincide con tu tarea. Todo funciona en tu navegador.",
+        listTitle: "Lo que ofrecemos",
+        toolTitles: ["Inicio Imagen", "Imagen Experto", "Convertidor de Texto", "Convertidor de Audio", "Convertidor de Video"],
+        toolDescs: [
+          "Rutas por necesidad para compresion, redimension, HEIC, WEBP y presets.",
+          "Opciones avanzadas y proceso por lotes para usuarios expertos.",
+          "Herramientas para JSON, CSV/TSV, Markdown y HTML.",
+          "Recorta, aplica fade, normaliza y convierte audio en local.",
+          "Convierte formato, recorta, redimensiona y extrae miniaturas en navegador.",
+        ],
+        startTitle: "Rutas recomendadas",
+        startList: [
+          "Si eres nuevo, empieza en Inicio Imagen.",
+          "Si quieres control directo, abre Imagen Experto.",
+          "Texto, audio y video tienen espacios dedicados.",
+        ],
       },
       pages: {
         "image-hub": {
@@ -425,6 +465,7 @@
         navMain: "主导航",
         home: "首页",
         imageHub: "图片",
+        imageExpert: "图片专家",
         text: "文本",
         audio: "音频",
         video: "视频",
@@ -433,6 +474,21 @@
         heic: "HEIC",
         webp: "WEBP",
         instagram: "Instagram",
+      },
+      homeContent: {
+        heroTitle: "一个页面查看全部转换功能",
+        heroDesc: "按任务选择对应流程，所有处理都在浏览器内完成。",
+        listTitle: "我们提供的功能",
+        toolTitles: ["图片主页", "图片专家", "文本转换", "音频转换", "视频转换"],
+        toolDescs: [
+          "按场景进入压缩、改尺寸、HEIC、WEBP和预设流程。",
+          "为熟练用户提供高级参数与批量处理。",
+          "支持 JSON、CSV/TSV、Markdown、HTML 文本转换。",
+          "本地完成裁剪、淡入淡出、归一化和格式转换。",
+          "支持格式转换、裁剪、缩放和缩略图提取。",
+        ],
+        startTitle: "推荐入口",
+        startList: ["第一次使用建议先看图片主页。", "需要更细控制请进入图片专家。", "文本、音频、视频都有独立工作区。"],
       },
       pages: {
         "image-hub": {
@@ -550,6 +606,7 @@
         navMain: "주요 내비게이션",
         home: "홈",
         imageHub: "이미지",
+        imageExpert: "이미지 전문가",
         text: "텍스트",
         audio: "오디오",
         video: "비디오",
@@ -558,6 +615,25 @@
         heic: "HEIC",
         webp: "WEBP",
         instagram: "인스타그램",
+      },
+      homeContent: {
+        heroTitle: "모든 변환 기능을 한 곳에서",
+        heroDesc: "작업에 맞는 흐름을 선택하세요. 모든 처리는 브라우저에서 실행됩니다.",
+        listTitle: "제공 기능",
+        toolTitles: ["이미지 홈", "이미지 전문가", "텍스트 변환", "오디오 변환", "비디오 변환"],
+        toolDescs: [
+          "압축, 리사이즈, HEIC, WEBP, 프리셋을 상황별로 제공합니다.",
+          "숙련자를 위한 고급 옵션과 배치 처리 워크스페이스입니다.",
+          "JSON, CSV/TSV, Markdown, HTML 텍스트 변환 도구를 제공합니다.",
+          "트림, 페이드, 노멀라이즈, 포맷 변환을 로컬에서 처리합니다.",
+          "포맷 변환, 트림, 크기 조절, 썸네일 추출을 지원합니다.",
+        ],
+        startTitle: "추천 시작 경로",
+        startList: [
+          "처음 사용하면 이미지 홈부터 시작하세요.",
+          "직접 옵션을 만지려면 이미지 전문가로 이동하세요.",
+          "텍스트/오디오/비디오는 각각 전용 작업 공간이 있습니다.",
+        ],
       },
       pages: {
         "image-hub": {
@@ -675,6 +751,7 @@
         navMain: "メインナビゲーション",
         home: "ホーム",
         imageHub: "画像",
+        imageExpert: "画像エキスパート",
         text: "テキスト",
         audio: "音声",
         video: "動画",
@@ -683,6 +760,25 @@
         heic: "HEIC",
         webp: "WEBP",
         instagram: "Instagram",
+      },
+      homeContent: {
+        heroTitle: "変換機能を1か所で確認",
+        heroDesc: "目的に合うフローを選択してください。処理はすべてブラウザ内で完結します。",
+        listTitle: "提供している機能",
+        toolTitles: ["画像ホーム", "画像エキスパート", "テキスト変換", "音声変換", "動画変換"],
+        toolDescs: [
+          "圧縮、リサイズ、HEIC、WEBP、プリセットを目的別に利用できます。",
+          "上級者向けの詳細オプションとバッチ処理ワークスペースです。",
+          "JSON、CSV/TSV、Markdown、HTML の変換ツールです。",
+          "トリム、フェード、正規化、形式変換をローカルで処理します。",
+          "形式変換、トリム、リサイズ、サムネイル抽出に対応します。",
+        ],
+        startTitle: "おすすめの開始ルート",
+        startList: [
+          "初めてなら画像ホームから開始。",
+          "詳細設定を使うなら画像エキスパートへ。",
+          "テキスト/音声/動画は専用ワークスペースを用意しています。",
+        ],
       },
       pages: {
         "image-hub": {
@@ -995,6 +1091,10 @@
     if (!href) return "";
     if (href === "/") return labels.home;
     if (href === "/image/") return labels.imageHub;
+    if (href === "/image-expert/") return labels.imageExpert;
+    if (href === "/text/") return labels.text;
+    if (href === "/audio/") return labels.audio;
+    if (href === "/video/") return labels.video;
     if (href === "/#textSection") return labels.text;
     if (href === "/#audioSection") return labels.audio;
     if (href === "/#videoSection") return labels.video;
@@ -1016,6 +1116,11 @@
   }
 
   function applyPageCopy() {
+    if (pageType === "home") {
+      applyHomeCopy();
+      return;
+    }
+
     const pages = getCopy().pages || {};
     const page = pages[pageType] || (COPY.en.pages || {})[pageType];
     if (!page) return;
@@ -1031,6 +1136,24 @@
     }
 
     applyIntentPageCopy(page);
+  }
+
+  function applyHomeCopy() {
+    const copy = getCopy().homeContent || COPY.en.homeContent;
+    if (!copy) return;
+
+    setText(".home-title", copy.heroTitle);
+    setText(".home-desc", copy.heroDesc);
+    setText(".home-list-title", copy.listTitle);
+
+    const cards = document.querySelectorAll(".home-tool-grid .home-tool-card");
+    cards.forEach((card, index) => {
+      setTextNode(card.querySelector("h3"), copy.toolTitles[index]);
+      setTextNode(card.querySelector("p"), copy.toolDescs[index]);
+    });
+
+    setText(".home-start-title", copy.startTitle);
+    setListText(".home-start-list li", copy.startList);
   }
 
   function applyImageHubCopy(page) {

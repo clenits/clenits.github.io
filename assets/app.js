@@ -92,10 +92,13 @@ const IMAGE_INTENT_PRESETS = {
 const COPY = {
   en: {
     tabs_image: "Image",
+    tabs_image_home: "Image Home",
+    tabs_image_expert: "Image Expert",
     tabs_text: "Text",
     tabs_audio: "Audio",
     tabs_video: "Video",
     subnav_image: "Image",
+    subnav_expert: "Expert",
     subnav_compress: "Compress",
     subnav_resize: "Resize",
     subnav_heic: "HEIC",
@@ -334,10 +337,13 @@ const COPY = {
   },
   es: {
     tabs_image: "Imagen",
+    tabs_image_home: "Inicio Imagen",
+    tabs_image_expert: "Imagen Experto",
     tabs_text: "Texto",
     tabs_audio: "Audio",
     tabs_video: "Video",
     subnav_image: "Imagen",
+    subnav_expert: "Experto",
     subnav_compress: "Comprimir",
     subnav_resize: "Redimensionar",
     subnav_heic: "HEIC",
@@ -443,10 +449,13 @@ const COPY = {
   },
   zh: {
     tabs_image: "图片",
+    tabs_image_home: "图片主页",
+    tabs_image_expert: "图片专家",
     tabs_text: "文本",
     tabs_audio: "音频",
     tabs_video: "视频",
     subnav_image: "图片",
+    subnav_expert: "专家",
     subnav_compress: "压缩",
     subnav_resize: "调整尺寸",
     subnav_heic: "HEIC",
@@ -552,10 +561,13 @@ const COPY = {
   },
   ko: {
     tabs_image: "이미지",
+    tabs_image_home: "이미지 홈",
+    tabs_image_expert: "이미지 전문가",
     tabs_text: "텍스트",
     tabs_audio: "오디오",
     tabs_video: "비디오",
     subnav_image: "이미지",
+    subnav_expert: "전문가",
     subnav_compress: "압축",
     subnav_resize: "리사이즈",
     subnav_heic: "HEIC",
@@ -661,10 +673,13 @@ const COPY = {
   },
   ja: {
     tabs_image: "画像",
+    tabs_image_home: "画像ホーム",
+    tabs_image_expert: "画像エキスパート",
     tabs_text: "テキスト",
     tabs_audio: "音声",
     tabs_video: "動画",
     subnav_image: "画像",
+    subnav_expert: "エキスパート",
     subnav_compress: "圧縮",
     subnav_resize: "リサイズ",
     subnav_heic: "HEIC",
@@ -913,7 +928,7 @@ function init() {
   buildTextToolOptions();
   setLanguage(detectLanguage(), false);
   bindEvents();
-  setActiveTab("image");
+  setActiveTab(getInitialTabFromPath());
   renderResults();
   updateSelectedSummary();
   syncQualityLabel();
@@ -1165,6 +1180,18 @@ function setActiveTab(tabName) {
   dom.textSection.classList.toggle("is-hidden", state.activeTab !== "text");
   dom.audioSection.classList.toggle("is-hidden", state.activeTab !== "audio");
   dom.videoSection.classList.toggle("is-hidden", state.activeTab !== "video");
+  document.querySelectorAll(".image-only").forEach((node) => {
+    node.classList.toggle("is-hidden", state.activeTab !== "image");
+  });
+}
+
+function getInitialTabFromPath() {
+  const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  if (path === "/text") return "text";
+  if (path === "/audio") return "audio";
+  if (path === "/video") return "video";
+  if (path === "/image-expert") return "image";
+  return "image";
 }
 
 function syncImageSubnavActive() {
@@ -1200,6 +1227,10 @@ function applyIntentPresetFromUrl() {
 
 function resolvePageType() {
   const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  if (path === "/text") return "text";
+  if (path === "/audio") return "audio";
+  if (path === "/video") return "video";
+  if (path === "/image-expert") return "image-expert";
   if (path === "/compress-image") return "compress-image";
   if (path === "/resize-image") return "resize-image";
   if (path === "/heic-to-jpg") return "heic-to-jpg";

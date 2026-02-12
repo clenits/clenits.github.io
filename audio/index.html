@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Converter | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Free browser audio converter for trim, volume, fade, and format conversion. No upload required."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/audio/" />
+    <meta property="og:title" content="Audio Converter | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Convert and process audio files directly in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/audio/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="route-audio">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main tabs">
+        <a class="tab" href="/image/" data-i18n="tabs_image_home">Image Home</a>
+        <a class="tab" href="/image-expert/" data-i18n="tabs_image_expert">Image Expert</a>
+        <a class="tab" href="/text/" data-tab="text" data-i18n="tabs_text">Text</a>
+        <a class="tab is-active" href="/audio/" data-tab="audio" data-i18n="tabs_audio">Audio</a>
+        <a class="tab" href="/video/" data-tab="video" data-i18n="tabs_video">Video</a>
+      </nav>
+      <div class="language-picker">
+        <button
+          id="languageButton"
+          class="language-button"
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-label="Language"
+        >
+          <span id="languageFlag">🇺🇸</span>
+          <span id="languageLabel">EN</span>
+        </button>
+        <ul id="languageMenu" class="language-menu" role="menu" hidden></ul>
+      </div>
+    </header>
+    <nav class="image-subnav card image-only" aria-label="Image tools quick menu">
+      <a class="subnav-link" href="/image/" data-i18n="subnav_image">Image</a>
+      <a class="subnav-link" href="/image-expert/" data-i18n="subnav_expert">Expert</a>
+      <a class="subnav-link" href="/compress-image/" data-i18n="subnav_compress">Compress</a>
+      <a class="subnav-link" href="/resize-image/" data-i18n="subnav_resize">Resize</a>
+      <a class="subnav-link" href="/heic-to-jpg/" data-i18n="subnav_heic">HEIC</a>
+      <a class="subnav-link" href="/webp-to-jpg/" data-i18n="subnav_webp">WEBP</a>
+      <a class="subnav-link" href="/instagram-image-size/" data-i18n="subnav_instagram">Instagram</a>
+    </nav>
+
+    <main>
+      <section class="hero card image-only">
+        <h1 data-i18n="hero_title">Free and Unlimited Image Converter.</h1>
+        <p data-i18n="hero_desc">Use it free with no count limit. Your files stay on your device.</p>
+        <div class="trust-list" role="list" aria-label="Privacy highlights">
+          <span class="trust-item" data-i18n="trust_free">100% free</span>
+          <span class="trust-item" data-i18n="trust_unlimited">Unlimited conversions</span>
+          <span class="trust-item" data-i18n="trust_no_upload">No file upload</span>
+          <span class="trust-item" data-i18n="trust_local">Runs in your browser</span>
+          <span class="trust-item" data-i18n="trust_network">No file data sent to internet</span>
+          <span class="trust-item" data-i18n="trust_privacy">Hidden photo info removed by default</span>
+        </div>
+      </section>
+
+      <section class="card image-only">
+        <h2 data-i18n="start_by_situation_title">Start by your situation</h2>
+        <p class="muted" data-i18n="start_by_situation_desc">
+          Choose the flow that matches your issue, then apply recommended defaults.
+        </p>
+        <div class="link-grid" aria-label="Intent shortcuts">
+          <a class="link-card" href="/compress-image/" data-intent="compress-image">
+            <h3 data-i18n="intent_card_large_title">File is too large</h3>
+            <p data-i18n="intent_card_large_desc">Compress for upload limits and email attachments.</p>
+          </a>
+          <a class="link-card" href="/resize-image/" data-intent="resize-image">
+            <h3 data-i18n="intent_card_resize_title">Dimensions are wrong</h3>
+            <p data-i18n="intent_card_resize_desc">Resize width and height to required pixel values.</p>
+          </a>
+          <a class="link-card" href="/heic-to-jpg/" data-intent="heic-to-jpg">
+            <h3 data-i18n="intent_card_heic_title">HEIC not supported</h3>
+            <p data-i18n="intent_card_heic_desc">Convert to JPG for wider compatibility.</p>
+          </a>
+          <a class="link-card" href="/webp-to-jpg/" data-intent="webp-to-jpg">
+            <h3 data-i18n="intent_card_webp_title">WEBP rejected</h3>
+            <p data-i18n="intent_card_webp_desc">Convert to JPG or PNG based on compatibility needs.</p>
+          </a>
+        </div>
+      </section>
+
+      <section id="imageSection" class="converter card" aria-labelledby="converterTitle">
+        <div class="section-head">
+          <h2 id="converterTitle" data-i18n="converter_title">Image Converter</h2>
+          <p class="muted" data-i18n="converter_subtitle">
+            Drag files or choose images from your device.
+          </p>
+        </div>
+
+        <div id="dropZone" class="drop-zone" tabindex="0">
+          <p data-i18n="drop_hint">Drop PNG/JPG/WebP/GIF/HEIC files here</p>
+          <button id="selectFilesBtn" class="ghost-btn" type="button" data-i18n="choose_files">
+            Choose Files
+          </button>
+          <input
+            id="fileInput"
+            type="file"
+            accept="image/png,image/jpeg,image/webp,image/gif,image/heic,image/heif,.heic,.heif"
+            multiple
+            hidden
+          />
+          <small id="selectedSummary" class="muted" data-i18n="selected_none">No files selected</small>
+        </div>
+
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot below uploader">
+          Ad slot
+        </div>
+
+        <div class="options-grid">
+          <label class="option">
+            <span data-i18n="opt_format">Output Format</span>
+            <select id="formatSelect">
+              <option value="image/png">PNG</option>
+              <option value="image/jpeg">JPG</option>
+              <option value="image/webp">WebP</option>
+            </select>
+          </label>
+
+          <label class="option">
+            <span id="qualityLabel">Quality (92)</span>
+            <input id="qualityInput" type="range" min="1" max="100" value="92" />
+          </label>
+
+          <label class="option">
+            <span data-i18n="opt_width">Resize Width (px)</span>
+            <input id="widthInput" type="number" min="1" placeholder="Auto" />
+          </label>
+
+          <label class="option">
+            <span data-i18n="opt_height">Resize Height (px)</span>
+            <input id="heightInput" type="number" min="1" placeholder="Auto" />
+          </label>
+        </div>
+
+        <div class="toggles">
+          <label>
+            <input id="keepRatioInput" type="checkbox" checked />
+            <span data-i18n="opt_keep_ratio">Keep aspect ratio</span>
+          </label>
+          <label>
+            <input id="removeExifInput" type="checkbox" checked disabled />
+            <span data-i18n="opt_remove_exif">Remove hidden photo info (always on)</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="convertBtn" class="primary-btn" type="button" data-i18n="convert_btn">Convert</button>
+          <button id="clearBtn" class="ghost-btn" type="button" data-i18n="clear_btn">Clear</button>
+          <button id="downloadAllBtn" class="ghost-btn" type="button" disabled data-i18n="download_all_btn">
+            Download All
+          </button>
+          <span class="muted" data-i18n="zip_note">ZIP download is coming soon.</span>
+        </div>
+
+        <p id="statusText" class="status muted" data-i18n="status_idle">Ready</p>
+
+        <div class="results-block">
+          <h3 data-i18n="result_title">Results</h3>
+          <ul id="resultList" class="result-list"></ul>
+        </div>
+
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot below results">
+          Ad slot
+        </div>
+      </section>
+
+      <section id="textSection" class="converter card is-hidden" aria-labelledby="textConverterTitle">
+        <div class="section-head">
+          <h2 id="textConverterTitle" data-i18n="text_title">Text Converter</h2>
+          <p class="muted" data-i18n="text_subtitle">
+            Paste text and convert instantly in your browser.
+          </p>
+        </div>
+
+        <label class="option">
+          <span data-i18n="text_tool_label">Conversion Tool</span>
+          <select id="textToolSelect"></select>
+        </label>
+
+        <div class="text-grid">
+          <label class="option">
+            <span data-i18n="text_input_label">Input</span>
+            <textarea id="textInput" rows="13" data-i18n-placeholder="text_input_placeholder"></textarea>
+          </label>
+          <label class="option">
+            <span data-i18n="text_output_label">Output</span>
+            <textarea id="textOutput" rows="13" readonly data-i18n-placeholder="text_output_placeholder"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="textConvertBtn" class="primary-btn" type="button" data-i18n="text_run_btn">Convert Text</button>
+          <button id="textSwapBtn" class="ghost-btn" type="button" data-i18n="text_swap_btn">Swap Input/Output</button>
+          <button id="textClearBtn" class="ghost-btn" type="button" data-i18n="text_clear_btn">Clear</button>
+          <button id="textCopyBtn" class="ghost-btn" type="button" data-i18n="text_copy_btn">Copy Output</button>
+          <button id="textDownloadBtn" class="ghost-btn" type="button" data-i18n="text_download_btn">Download Output</button>
+        </div>
+
+        <p id="textStatus" class="status muted" data-i18n="text_status_ready">Ready for text conversion.</p>
+      </section>
+
+      <section id="audioSection" class="converter card is-hidden" aria-labelledby="audioConverterTitle">
+        <div class="section-head">
+          <h2 id="audioConverterTitle" data-i18n="audio_title">Audio Converter</h2>
+          <p class="muted" data-i18n="audio_subtitle">
+            Trim audio, change volume, add fade, and download as WAV. All local.
+          </p>
+        </div>
+
+        <div id="audioDropZone" class="drop-zone" tabindex="0">
+          <p data-i18n="audio_drop_hint">Drop audio file(s) here (MP3/WAV/OGG/M4A)</p>
+          <button id="audioSelectBtn" class="ghost-btn" type="button" data-i18n="audio_choose_file">
+            Choose Audio File
+          </button>
+          <input id="audioInput" type="file" accept="audio/*" multiple hidden />
+          <small class="muted" data-i18n="audio_supported_formats">Supported: mp3, wav, ogg, m4a, aac, webm</small>
+          <small id="audioSelectedSummary" class="muted" data-i18n="audio_selected_none">No audio file selected</small>
+          <small id="audioMetaInfo" class="muted"></small>
+        </div>
+
+        <div class="options-grid">
+          <label class="option">
+            <span data-i18n="audio_output_format">Output Format</span>
+            <select id="audioOutputFormatSelect">
+              <option value="wav">WAV (PCM 16-bit)</option>
+              <option value="mp3">MP3</option>
+              <option value="m4a">M4A (AAC)</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_output_bitrate">Bitrate</span>
+            <select id="audioBitrateSelect">
+              <option value="96k">96 kbps</option>
+              <option value="128k">128 kbps</option>
+              <option value="192k" selected>192 kbps</option>
+              <option value="256k">256 kbps</option>
+              <option value="320k">320 kbps</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_rate_mode">Rate Mode</span>
+            <select id="audioRateModeSelect">
+              <option value="cbr">CBR</option>
+              <option value="vbr">VBR</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_vbr_quality">VBR Quality</span>
+            <select id="audioVbrQualitySelect">
+              <option value="0">0 (Best)</option>
+              <option value="2">2 (High)</option>
+              <option value="4" selected>4 (Balanced)</option>
+              <option value="6">6 (Small)</option>
+              <option value="8">8 (Smallest)</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_aac_profile">AAC Profile</span>
+            <select id="audioAacProfileSelect">
+              <option value="aac_low">AAC-LC</option>
+              <option value="aac_he">HE-AAC</option>
+              <option value="aac_he_v2">HE-AAC v2</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_output_sample_rate">Sample Rate</span>
+            <select id="audioSampleRateSelect">
+              <option value="keep" data-i18n="audio_sample_rate_keep">Keep original</option>
+              <option value="48000">48,000 Hz</option>
+              <option value="44100">44,100 Hz</option>
+              <option value="22050">22,050 Hz</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_output_channels">Channels</span>
+            <select id="audioChannelSelect">
+              <option value="keep" data-i18n="audio_channels_keep">Keep original</option>
+              <option value="mono" data-i18n="audio_channels_mono">Mono</option>
+              <option value="stereo" data-i18n="audio_channels_stereo">Stereo</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="audio_trim_start">Trim Start (sec)</span>
+            <input id="audioStartInput" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label class="option">
+            <span data-i18n="audio_trim_end">Trim End (sec)</span>
+            <input id="audioEndInput" type="number" min="0" step="0.01" />
+          </label>
+          <label class="option">
+            <span id="audioVolumeLabel">Volume (0 dB)</span>
+            <input id="audioVolumeInput" type="range" min="-24" max="24" step="1" value="0" />
+          </label>
+          <label class="option">
+            <span data-i18n="audio_fade_in">Fade In (sec)</span>
+            <input id="audioFadeInInput" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label class="option">
+            <span data-i18n="audio_fade_out">Fade Out (sec)</span>
+            <input id="audioFadeOutInput" type="number" min="0" step="0.01" value="0" />
+          </label>
+        </div>
+
+        <div class="toggles">
+          <label>
+            <input id="audioNormalizeInput" type="checkbox" checked />
+            <span data-i18n="audio_normalize">Auto normalize volume (safe level)</span>
+          </label>
+        </div>
+
+        <p class="muted" data-i18n="audio_ffmpeg_note">
+          MP3/M4A export uses FFmpeg in your browser and may take extra time on large files.
+        </p>
+
+        <div class="actions">
+          <button id="audioProcessBtn" class="primary-btn" type="button" data-i18n="audio_process_btn">Process Audio</button>
+          <button id="audioClearBtn" class="ghost-btn" type="button" data-i18n="audio_clear_btn">Clear</button>
+          <button id="audioDownloadBtn" class="ghost-btn" type="button" disabled data-i18n="audio_download_btn">
+            Download Audio
+          </button>
+        </div>
+
+        <p id="audioStatus" class="status muted" data-i18n="audio_status_ready">Ready for audio conversion.</p>
+        <div class="audio-progress-wrap">
+          <progress id="audioProgressBar" max="100" value="0"></progress>
+          <small id="audioProgressText" class="muted" data-i18n="audio_progress_idle">No audio processing yet.</small>
+        </div>
+
+        <div class="audio-preview-grid">
+          <div>
+            <h3 data-i18n="audio_preview_original">Original Preview</h3>
+            <audio id="audioOriginalPreview" controls></audio>
+          </div>
+          <div>
+            <h3 data-i18n="audio_preview_output">Output Preview</h3>
+            <audio id="audioOutputPreview" controls></audio>
+          </div>
+        </div>
+
+        <div class="results-block">
+          <h3 data-i18n="audio_result_title">Audio Results</h3>
+          <ul id="audioResultList" class="result-list"></ul>
+        </div>
+      </section>
+
+      <section id="videoSection" class="converter card is-hidden" aria-labelledby="videoConverterTitle">
+        <div class="section-head">
+          <h2 id="videoConverterTitle" data-i18n="video_title">Video Converter</h2>
+          <p class="muted" data-i18n="video_subtitle">
+            Convert video format, trim, resize, and extract thumbnails. Everything runs in your browser.
+          </p>
+        </div>
+
+        <div id="videoDropZone" class="drop-zone" tabindex="0">
+          <p data-i18n="video_drop_hint">Drop video file(s) here (mp4, mov, webm, mkv)</p>
+          <button id="videoSelectBtn" class="ghost-btn" type="button" data-i18n="video_choose_file">
+            Choose Video File
+          </button>
+          <input id="videoInput" type="file" accept="video/*" multiple hidden />
+          <small class="muted" data-i18n="video_supported_formats">Supported input: mp4, mov, webm, mkv, avi</small>
+          <small id="videoSelectedSummary" class="muted" data-i18n="video_selected_none">No video file selected</small>
+          <small id="videoMetaInfo" class="muted"></small>
+        </div>
+
+        <div class="options-grid">
+          <label class="option">
+            <span data-i18n="video_output_format">Output Format</span>
+            <select id="videoOutputFormatSelect">
+              <option value="mp4">MP4</option>
+              <option value="webm">WebM</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="video_bitrate">Video Bitrate</span>
+            <select id="videoBitrateSelect">
+              <option value="1000k">1 Mbps</option>
+              <option value="2000k" selected>2 Mbps</option>
+              <option value="4000k">4 Mbps</option>
+              <option value="8000k">8 Mbps</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="video_preset">Encoding Preset</span>
+            <select id="videoPresetSelect">
+              <option value="fast">Fast</option>
+              <option value="medium" selected>Balanced</option>
+              <option value="slow">High Quality</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="video_fps">FPS</span>
+            <select id="videoFpsSelect">
+              <option value="keep" data-i18n="video_keep_original">Keep original</option>
+              <option value="24">24</option>
+              <option value="30">30</option>
+              <option value="60">60</option>
+            </select>
+          </label>
+          <label class="option">
+            <span data-i18n="video_trim_start">Trim Start (sec)</span>
+            <input id="videoStartInput" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label class="option">
+            <span data-i18n="video_trim_end">Trim End (sec)</span>
+            <input id="videoEndInput" type="number" min="0" step="0.01" />
+          </label>
+          <label class="option">
+            <span data-i18n="video_resize_width">Resize Width (px)</span>
+            <input id="videoWidthInput" type="number" min="1" placeholder="Auto" />
+          </label>
+          <label class="option">
+            <span data-i18n="video_resize_height">Resize Height (px)</span>
+            <input id="videoHeightInput" type="number" min="1" placeholder="Auto" />
+          </label>
+        </div>
+
+        <div class="toggles">
+          <label>
+            <input id="videoKeepRatioInput" type="checkbox" checked />
+            <span data-i18n="video_keep_ratio">Keep aspect ratio</span>
+          </label>
+          <label>
+            <input id="videoMuteInput" type="checkbox" />
+            <span data-i18n="video_mute">Mute audio</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="videoProcessBtn" class="primary-btn" type="button" data-i18n="video_process_btn">Convert Videos</button>
+          <button id="videoCancelBtn" class="ghost-btn" type="button" disabled data-i18n="video_cancel_btn">Cancel</button>
+          <button id="videoThumbBtn" class="ghost-btn" type="button" data-i18n="video_thumb_btn">Extract Thumbnail</button>
+          <button id="videoClearBtn" class="ghost-btn" type="button" data-i18n="video_clear_btn">Clear</button>
+          <button id="videoDownloadBtn" class="ghost-btn" type="button" disabled data-i18n="video_download_btn">
+            Download Converted
+          </button>
+          <button id="videoThumbDownloadBtn" class="ghost-btn" type="button" disabled data-i18n="video_thumb_download_btn">
+            Download Thumbnail
+          </button>
+        </div>
+
+        <p id="videoStatus" class="status muted" data-i18n="video_status_ready">Ready for video conversion.</p>
+        <div class="audio-progress-wrap">
+          <progress id="videoProgressBar" max="100" value="0"></progress>
+          <small id="videoProgressText" class="muted" data-i18n="video_progress_idle">No video processing yet.</small>
+        </div>
+
+        <div class="audio-preview-grid">
+          <div>
+            <h3 data-i18n="video_preview_original">Original Preview</h3>
+            <video id="videoOriginalPreview" controls playsinline></video>
+          </div>
+          <div>
+            <h3 data-i18n="video_preview_output">Output Preview</h3>
+            <video id="videoOutputPreview" controls playsinline></video>
+          </div>
+        </div>
+
+        <div class="results-block">
+          <h3 data-i18n="video_queue_title">Queue</h3>
+          <ul id="videoQueueList" class="result-list"></ul>
+        </div>
+
+        <div class="results-block">
+          <h3 data-i18n="video_result_title">Video Results</h3>
+          <ul id="videoResultList" class="result-list"></ul>
+        </div>
+
+        <div class="results-block">
+          <h3 data-i18n="video_thumbnail_title">Thumbnail</h3>
+          <img id="videoThumbnailPreview" class="video-thumb-preview is-hidden" alt="thumbnail preview" />
+        </div>
+      </section>
+
+      <section id="about" class="card content-section">
+        <h2 data-i18n="about_title">About FreeConvertAll</h2>
+        <p data-i18n="about_body">FreeConvertAll is a free converter that runs entirely in your browser.</p>
+      </section>
+
+      <section id="faq" class="card content-section">
+        <h2 data-i18n="faq_title">FAQ</h2>
+        <h3 data-i18n="faq_q1">Are my files uploaded?</h3>
+        <p data-i18n="faq_a1">No. Files are processed locally in your browser memory only.</p>
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot inside FAQ">
+          Ad slot
+        </div>
+        <h3 data-i18n="faq_q2">Why did conversion fail?</h3>
+        <p data-i18n="faq_a2">Large images may exceed memory limits. Try fewer files or smaller dimensions.</p>
+      </section>
+
+      <section id="privacy" class="card content-section">
+        <h2 data-i18n="privacy_title">Privacy Policy</h2>
+        <p data-i18n="privacy_body1">We do not upload your file data to our server.</p>
+        <p data-i18n="privacy_body2">Analytics and ad scripts may load, but file content and file names are not sent.</p>
+      </section>
+
+      <section id="terms" class="card content-section">
+        <h2 data-i18n="terms_title">Terms of Use</h2>
+        <p data-i18n="terms_body">
+          This service is provided as-is. You are responsible for validating output before production use.
+        </p>
+      </section>
+
+      <section id="contact" class="card content-section">
+        <h2 data-i18n="contact_title">Contact</h2>
+        <p>
+          <span data-i18n="contact_body">Questions or feedback:</span>
+          <a href="mailto:hello@localconvert.app">hello@localconvert.app</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="#about" data-i18n="footer_about">About</a>
+      <a href="#faq" data-i18n="footer_faq">FAQ</a>
+      <a href="#privacy" data-i18n="footer_privacy">Privacy</a>
+      <a href="#terms" data-i18n="footer_terms">Terms</a>
+      <a href="#contact" data-i18n="footer_contact">Contact</a>
+    </footer>
+
+    <script src="https://unpkg.com/heic2any/dist/heic2any.min.js" defer></script>
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js" defer></script>
+    <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js" defer></script>
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>
