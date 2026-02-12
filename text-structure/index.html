@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List and Structure Text | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Restructure line lists: add numbering or bullets, split comma lists, merge lines into comma-separated values, remove duplicates, and sort A-Z."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/text-structure/" />
+    <meta property="og:title" content="List and Structure Text | FreeConvertAll" />
+    <meta property="og:description" content="Line-based text list tools for cleaning and restructuring datasets." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/text-structure/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="text-structure">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/text-clean/" data-nav="clean">Clean</a>
+      <a class="text-subnav-link" href="/text-dev/" data-nav="dev">Dev</a>
+      <a class="text-subnav-link" href="/text-counter/" data-nav="counter">Counter</a>
+      <a class="text-subnav-link" href="/text-case/" data-nav="textCase">Case</a>
+      <a class="text-subnav-link" href="/text-structure/" data-nav="structure">Structure</a>
+      <a class="text-subnav-link" href="/text-special/" data-nav="special">Special</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Restructure line-based text lists</h1>
+        <p>Convert between line and comma formats, deduplicate values, and sort cleanly.</p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="tool-controls" role="group" aria-label="Structure operations">
+          <button class="chip-btn is-active" type="button" data-operation="dedupe_lines">Remove duplicates</button>
+          <button class="chip-btn" type="button" data-operation="sort_az">Sort A-Z</button>
+          <button class="chip-btn" type="button" data-operation="number_lines">Add numbering</button>
+          <button class="chip-btn" type="button" data-operation="bullet_lines">Add bullets</button>
+          <button class="chip-btn" type="button" data-operation="comma_to_lines">Comma to lines</button>
+          <button class="chip-btn" type="button" data-operation="lines_to_comma">Lines to comma</button>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste lines or comma-separated values"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Structured output appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="text-metrics" aria-label="Text metrics">
+          <div class="metric-box"><strong id="metricTotal">0</strong><span>Total chars</span></div>
+          <div class="metric-box"><strong id="metricNoSpace">0</strong><span>No-space chars</span></div>
+          <div class="metric-box"><strong id="metricLines">0</strong><span>Lines</span></div>
+          <div class="metric-box"><strong id="metricWords">0</strong><span>Words</span></div>
+          <div class="metric-box"><strong id="metricBytes">0</strong><span>UTF-8 bytes</span></div>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+
+        <p id="statusText" class="status muted">Ready.</p>
+
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related shortcuts</h2>
+        <div class="related-links">
+          <a href="/remove-duplicate-lines/">Remove duplicate lines page</a>
+          <a href="/remove-line-breaks/">Remove line breaks page</a>
+          <a href="/text-clean/">Clean copied text</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+      <a href="/text-dev/" data-nav="dev">Dev</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+      <a href="/text-case/" data-nav="textCase">Case</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

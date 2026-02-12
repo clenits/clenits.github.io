@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Clean Tool | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Clean pasted text by removing duplicate spaces, broken line breaks, HTML tags, special characters, and surrounding whitespace."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/text-clean/" />
+    <meta property="og:title" content="Text Clean Tool | FreeConvertAll" />
+    <meta property="og:description" content="Multi-select cleanup operations with real-time preview in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/text-clean/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="text-clean">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/text-clean/" data-nav="clean">Clean</a>
+      <a class="text-subnav-link" href="/text-dev/" data-nav="dev">Dev</a>
+      <a class="text-subnav-link" href="/text-counter/" data-nav="counter">Counter</a>
+      <a class="text-subnav-link" href="/text-case/" data-nav="textCase">Case</a>
+      <a class="text-subnav-link" href="/text-structure/" data-nav="structure">Structure</a>
+      <a class="text-subnav-link" href="/text-special/" data-nav="special">Special</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Clean copied text in one pass</h1>
+        <p>Select multiple cleanup rules. Output updates instantly with no upload.</p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="check-grid" role="group" aria-label="Cleanup operations">
+          <label><input class="operation-check" type="checkbox" value="collapse_spaces" checked /> Remove duplicate spaces</label>
+          <label><input class="operation-check" type="checkbox" value="normalize_linebreaks" checked /> Normalize line breaks</label>
+          <label><input class="operation-check" type="checkbox" value="remove_linebreaks" /> Remove all line breaks</label>
+          <label><input class="operation-check" type="checkbox" value="strip_html" /> Remove HTML tags</label>
+          <label><input class="operation-check" type="checkbox" value="remove_special_chars" /> Remove special characters</label>
+          <label><input class="operation-check" type="checkbox" value="trim_edges" checked /> Trim each line</label>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste text to clean"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Cleaned text appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="text-metrics" aria-label="Text metrics">
+          <div class="metric-box"><strong id="metricTotal">0</strong><span>Total chars</span></div>
+          <div class="metric-box"><strong id="metricNoSpace">0</strong><span>No-space chars</span></div>
+          <div class="metric-box"><strong id="metricLines">0</strong><span>Lines</span></div>
+          <div class="metric-box"><strong id="metricWords">0</strong><span>Words</span></div>
+          <div class="metric-box"><strong id="metricBytes">0</strong><span>UTF-8 bytes</span></div>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+
+        <p id="statusText" class="status muted">Ready.</p>
+
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related shortcuts</h2>
+        <div class="related-links">
+          <a href="/remove-line-breaks/">Remove line breaks page</a>
+          <a href="/remove-duplicate-lines/">Remove duplicate lines</a>
+          <a href="/text-structure/">List and sort tools</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-dev/" data-nav="dev">Dev</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+      <a href="/text-case/" data-nav="textCase">Case</a>
+      <a href="/text-special/" data-nav="special">Special</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

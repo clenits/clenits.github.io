@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Special Text Filters | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Special filters for text: remove emoji, keep digits only, keep Korean only, keep English only, and remove special characters."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/text-special/" />
+    <meta property="og:title" content="Special Text Filters | FreeConvertAll" />
+    <meta property="og:description" content="Filter and sanitize special text content directly in your browser." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/text-special/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="text-special">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/text-clean/" data-nav="clean">Clean</a>
+      <a class="text-subnav-link" href="/text-dev/" data-nav="dev">Dev</a>
+      <a class="text-subnav-link" href="/text-counter/" data-nav="counter">Counter</a>
+      <a class="text-subnav-link" href="/text-case/" data-nav="textCase">Case</a>
+      <a class="text-subnav-link" href="/text-structure/" data-nav="structure">Structure</a>
+      <a class="text-subnav-link" href="/text-special/" data-nav="special">Special</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Filter special characters and language sets</h1>
+        <p>Keep only the part of text you need and remove the rest in real time.</p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="tool-controls" role="group" aria-label="Special operations">
+          <button class="chip-btn is-active" type="button" data-operation="remove_emoji">Remove emoji</button>
+          <button class="chip-btn" type="button" data-operation="digits_only">Keep digits only</button>
+          <button class="chip-btn" type="button" data-operation="korean_only">Keep Korean only</button>
+          <button class="chip-btn" type="button" data-operation="english_only">Keep English only</button>
+          <button class="chip-btn" type="button" data-operation="remove_special_chars">Remove special chars</button>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste text to filter"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Filtered output appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="text-metrics" aria-label="Text metrics">
+          <div class="metric-box"><strong id="metricTotal">0</strong><span>Total chars</span></div>
+          <div class="metric-box"><strong id="metricNoSpace">0</strong><span>No-space chars</span></div>
+          <div class="metric-box"><strong id="metricLines">0</strong><span>Lines</span></div>
+          <div class="metric-box"><strong id="metricWords">0</strong><span>Words</span></div>
+          <div class="metric-box"><strong id="metricBytes">0</strong><span>UTF-8 bytes</span></div>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+
+        <p id="statusText" class="status muted">Ready.</p>
+
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related shortcuts</h2>
+        <div class="related-links">
+          <a href="/text-clean/">Clean copied text</a>
+          <a href="/text-case/">Convert text case</a>
+          <a href="/text-dev/">Developer transforms</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+      <a href="/text-dev/" data-nav="dev">Dev</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+      <a href="/text-structure/" data-nav="structure">Structure</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

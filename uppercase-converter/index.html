@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uppercase Converter | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Convert text to uppercase instantly and switch to lowercase or title case when needed."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/uppercase-converter/" />
+    <meta property="og:title" content="Uppercase Converter | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Uppercase, lowercase, and title case conversion in your browser with no upload."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/uppercase-converter/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="uppercase-converter">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/remove-line-breaks/" data-nav="removeLineBreaks">No Line Breaks</a>
+      <a class="text-subnav-link" href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a class="text-subnav-link" href="/uppercase-converter/" data-nav="uppercase">Uppercase</a>
+      <a class="text-subnav-link" href="/remove-duplicate-lines/" data-nav="dedupe">Remove Duplicates</a>
+      <a class="text-subnav-link" href="/base64-encode/" data-nav="base64">Base64</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Uppercase converter</h1>
+        <p>Convert selected text to uppercase in one click, then copy or download the result.</p>
+      </section>
+
+      <section class="card seo-copy">
+        <p>
+          Uppercase conversion is a small task that appears often in real workflows: formatting headings, preparing labels,
+          standardizing coupon codes, cleaning metadata, and adjusting style for documentation. Doing this manually is slow and
+          easy to get wrong when text is long or mixed with numbers and symbols. This uppercase converter gives immediate output
+          and keeps your original input visible so you can compare versions side by side before using the result.
+        </p>
+        <p>
+          The page is also useful when case style changes multiple times. You can switch from uppercase to lowercase or title
+          case without opening separate tools. Conversion runs entirely in-browser, so no text is uploaded to a backend service.
+          That makes it practical for private drafts, internal notes, and client copy that should stay on your device. Once the
+          final version is ready, copy it directly to your clipboard or export a local text file.
+        </p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="tool-controls" role="group" aria-label="Case operations">
+          <button class="chip-btn is-active" type="button" data-operation="uppercase">UPPERCASE</button>
+          <button class="chip-btn" type="button" data-operation="lowercase">lowercase</button>
+          <button class="chip-btn" type="button" data-operation="title_case">Title Case</button>
+          <button class="chip-btn" type="button" data-operation="camel_case">camelCase</button>
+          <button class="chip-btn" type="button" data-operation="snake_case">snake_case</button>
+          <button class="chip-btn" type="button" data-operation="kebab_case">kebab-case</button>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste text"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="UPPERCASE OUTPUT"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+        <p id="statusText" class="status muted">Ready.</p>
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Example</h2>
+        <pre>Input: Launch text update v2
+Output: LAUNCH TEXT UPDATE V2</pre>
+      </section>
+
+      <section class="card faq-list" id="faq">
+        <h2>FAQ</h2>
+        <div>
+          <h3>Does this change numbers too?</h3>
+          <p>Numbers stay unchanged. Only alphabetic case is converted.</p>
+        </div>
+        <div>
+          <h3>Can I switch to lowercase immediately?</h3>
+          <p>Yes. Select the lowercase option from the same operation bar.</p>
+        </div>
+        <div>
+          <h3>Will punctuation be removed?</h3>
+          <p>No. Case conversion keeps punctuation and symbols as they are.</p>
+        </div>
+        <div>
+          <h3>Is this safe for private text?</h3>
+          <p>Yes. Conversion runs locally with no server upload.</p>
+        </div>
+        <div>
+          <h3>Can I export the result?</h3>
+          <p>Yes. Use Copy Result or Download .txt.</p>
+        </div>
+        <div>
+          <h3>Can I convert long paragraphs?</h3>
+          <p>Yes, up to the browser-side input size limit.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <div class="related-links">
+          <a href="/text-case/">Case converter hub</a>
+          <a href="/text-clean/">Clean copied text</a>
+          <a href="/remove-line-breaks/">Remove line breaks</a>
+          <a href="/remove-duplicate-lines/">Remove duplicate lines</a>
+          <a href="/json-pretty-print/">JSON pretty print</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-case/" data-nav="textCase">Case</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

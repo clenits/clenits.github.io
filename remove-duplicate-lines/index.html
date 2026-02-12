@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Duplicate Lines | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Remove duplicate lines from text lists instantly and optionally sort results A-Z."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/remove-duplicate-lines/" />
+    <meta property="og:title" content="Remove Duplicate Lines | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Clean repeated list values with one click using local browser processing."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/remove-duplicate-lines/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="remove-duplicate-lines">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/remove-line-breaks/" data-nav="removeLineBreaks">No Line Breaks</a>
+      <a class="text-subnav-link" href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a class="text-subnav-link" href="/uppercase-converter/" data-nav="uppercase">Uppercase</a>
+      <a class="text-subnav-link" href="/remove-duplicate-lines/" data-nav="dedupe">Remove Duplicates</a>
+      <a class="text-subnav-link" href="/base64-encode/" data-nav="base64">Base64</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Remove duplicate lines from text lists</h1>
+        <p>Clean repeated values and keep only the first unique appearance of each line.</p>
+      </section>
+
+      <section class="card seo-copy">
+        <p>
+          Duplicate lines appear in many text workflows: exported tags, keyword lists, contact records, category tables, copied
+          logs, and manually combined spreadsheets. Removing repeats by hand takes time and often causes accidental deletions.
+          This page removes duplicated lines automatically while preserving one copy of each value, helping you produce cleaner
+          lists for import, publishing, or analysis. You can also switch to sorting mode to arrange unique values alphabetically
+          before exporting.
+        </p>
+        <p>
+          The tool works directly in your browser and does not upload list content. That matters when your lines include internal
+          labels, campaign terms, or confidential identifiers. Paste data, choose the desired operation, and review output in real
+          time. For downstream formatting, use internal links to convert line breaks, apply case formatting, or run developer
+          encoding operations. The full flow remains client-side for faster turnaround and better privacy.
+        </p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="tool-controls" role="group" aria-label="Structure operations">
+          <button class="chip-btn is-active" type="button" data-operation="dedupe_lines">Remove duplicates</button>
+          <button class="chip-btn" type="button" data-operation="sort_az">Sort A-Z</button>
+          <button class="chip-btn" type="button" data-operation="number_lines">Add numbering</button>
+          <button class="chip-btn" type="button" data-operation="bullet_lines">Add bullets</button>
+          <button class="chip-btn" type="button" data-operation="comma_to_lines">Comma to lines</button>
+          <button class="chip-btn" type="button" data-operation="lines_to_comma">Lines to comma</button>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste one item per line"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Unique lines appear here"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+        <p id="statusText" class="status muted">Ready.</p>
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Example</h2>
+        <pre>Input:
+apple
+banana
+apple
+cherry
+banana
+
+Output:
+apple
+banana
+cherry</pre>
+      </section>
+
+      <section class="card faq-list" id="faq">
+        <h2>FAQ</h2>
+        <div>
+          <h3>Does order stay the same after deduplication?</h3>
+          <p>Yes. Remove duplicates keeps the first appearance order.</p>
+        </div>
+        <div>
+          <h3>Can I sort after deduplication?</h3>
+          <p>Yes. Choose Sort A-Z operation when you need alphabetical output.</p>
+        </div>
+        <div>
+          <h3>Are empty lines removed?</h3>
+          <p>Yes. The dedupe flow removes empty rows from the output.</p>
+        </div>
+        <div>
+          <h3>Is this useful for keyword lists?</h3>
+          <p>Yes. It is commonly used for keyword, tag, and label cleanup.</p>
+        </div>
+        <div>
+          <h3>Is text data uploaded?</h3>
+          <p>No. Processing is browser-local.</p>
+        </div>
+        <div>
+          <h3>Can I export cleaned lines?</h3>
+          <p>Yes. Copy to clipboard or download as text.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <div class="related-links">
+          <a href="/text-structure/">List structure tools</a>
+          <a href="/remove-line-breaks/">Remove line breaks</a>
+          <a href="/uppercase-converter/">Uppercase converter</a>
+          <a href="/text-clean/">Text clean tool</a>
+          <a href="/base64-encode/">Base64 encode/decode</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-structure/" data-nav="structure">Structure</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

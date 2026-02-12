@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Line Breaks Online | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Remove line breaks from text instantly in your browser. Merge broken lines from copied email, PDF, or chat content into clean single-line text."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/remove-line-breaks/" />
+    <meta property="og:title" content="Remove Line Breaks Online | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Merge multiline text into a clean single line without uploading content to a server."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/remove-line-breaks/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="remove-line-breaks">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/remove-line-breaks/" data-nav="removeLineBreaks">No Line Breaks</a>
+      <a class="text-subnav-link" href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a class="text-subnav-link" href="/uppercase-converter/" data-nav="uppercase">Uppercase</a>
+      <a class="text-subnav-link" href="/remove-duplicate-lines/" data-nav="dedupe">Remove Duplicates</a>
+      <a class="text-subnav-link" href="/base64-encode/" data-nav="base64">Base64</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Remove line breaks from text</h1>
+        <p>Merge multiline content into a single clean line while keeping words readable.</p>
+      </section>
+
+      <section class="card seo-copy">
+        <p>
+          This remove line breaks tool is useful when copied text is split into many short rows. That often happens after copying
+          from PDF files, email threads, chat logs, OCR output, or spreadsheet cells. Instead of joining every line manually, paste
+          your content and keep the remove-line-breaks option enabled. The output updates instantly and keeps spacing between words
+          so the sentence flow remains natural. You can combine it with trim and duplicate-space cleanup in one pass.
+        </p>
+        <p>
+          Because this page runs fully in your browser, text is not uploaded or stored on a server. That matters for internal
+          notes, sensitive drafts, or personal writing that should stay on your device. The tool supports short snippets and long
+          text up to the current client-side limit. After conversion you can copy the cleaned result or download a text file. If
+          your next step is JSON formatting, line deduplication, or case conversion, internal links below move you directly to the
+          related tools.
+        </p>
+      </section>
+
+      <section class="card tool-surface">
+        <div class="check-grid" role="group" aria-label="Cleanup operations">
+          <label><input class="operation-check" type="checkbox" value="remove_linebreaks" checked /> Remove line breaks</label>
+          <label><input class="operation-check" type="checkbox" value="collapse_spaces" checked /> Remove duplicate spaces</label>
+          <label><input class="operation-check" type="checkbox" value="trim_edges" checked /> Trim each line</label>
+          <label><input class="operation-check" type="checkbox" value="normalize_linebreaks" /> Normalize line breaks</label>
+          <label><input class="operation-check" type="checkbox" value="strip_html" /> Remove HTML tags</label>
+          <label><input class="operation-check" type="checkbox" value="remove_special_chars" /> Remove special chars</label>
+        </div>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste text with many line breaks"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="One-line result appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+        <p id="statusText" class="status muted">Ready.</p>
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Example</h2>
+        <pre>Input:
+This line is broken
+into many short
+rows from a PDF.
+
+Output:
+This line is broken into many short rows from a PDF.</pre>
+      </section>
+
+      <section class="card faq-list" id="faq">
+        <h2>FAQ</h2>
+        <div>
+          <h3>Will this keep spaces between words?</h3>
+          <p>Yes. The line break removal rule replaces line ends with spaces and then normalizes extra spacing.</p>
+        </div>
+        <div>
+          <h3>Can I keep paragraph breaks?</h3>
+          <p>Disable remove-line-breaks and use normalize-line-breaks instead to keep structured paragraphs.</p>
+        </div>
+        <div>
+          <h3>Is my text uploaded anywhere?</h3>
+          <p>No. Conversion runs locally in your browser memory.</p>
+        </div>
+        <div>
+          <h3>Does this support long documents?</h3>
+          <p>Yes, up to the client-side limit on this page. Very large input may be truncated after 1MB.</p>
+        </div>
+        <div>
+          <h3>Can I remove HTML tags at the same time?</h3>
+          <p>Yes. Enable the Remove HTML tags option together with line-break cleanup.</p>
+        </div>
+        <div>
+          <h3>How do I save the cleaned result?</h3>
+          <p>Use Copy Result for clipboard or Download .txt for a local file.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <div class="related-links">
+          <a href="/text-clean/">Text clean tool</a>
+          <a href="/remove-duplicate-lines/">Remove duplicate lines</a>
+          <a href="/json-pretty-print/">JSON pretty print</a>
+          <a href="/uppercase-converter/">Uppercase converter</a>
+          <a href="/base64-encode/">Base64 encode/decode</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+      <a href="/text-structure/" data-nav="structure">Structure</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer Text Transform | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Developer text conversion tools: JSON pretty/minify/validate, Base64 encode/decode, URL encode/decode, HTML escape/unescape, Unicode escape, and SHA-256 hash."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/text-dev/" />
+    <meta property="og:title" content="Developer Text Transform | FreeConvertAll" />
+    <meta property="og:description" content="Dev-focused text transformations in-browser with instant output." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/text-dev/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="text-dev">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/text-clean/" data-nav="clean">Clean</a>
+      <a class="text-subnav-link" href="/text-dev/" data-nav="dev">Dev</a>
+      <a class="text-subnav-link" href="/text-counter/" data-nav="counter">Counter</a>
+      <a class="text-subnav-link" href="/text-case/" data-nav="textCase">Case</a>
+      <a class="text-subnav-link" href="/text-structure/" data-nav="structure">Structure</a>
+      <a class="text-subnav-link" href="/text-special/" data-nav="special">Special</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Developer conversion utilities</h1>
+        <p>Switch operation and convert immediately. JSON parsing errors are reported in place.</p>
+      </section>
+
+      <section class="card tool-surface">
+        <label class="option">
+          <span>Operation</span>
+          <select id="operationSelect">
+            <optgroup label="JSON">
+              <option value="json_pretty">Pretty print JSON</option>
+              <option value="json_minify">Minify JSON</option>
+              <option value="json_validate">Validate JSON</option>
+            </optgroup>
+            <optgroup label="Encoding">
+              <option value="base64_encode">Base64 encode</option>
+              <option value="base64_decode">Base64 decode</option>
+              <option value="url_encode">URL encode</option>
+              <option value="url_decode">URL decode</option>
+              <option value="html_escape">HTML escape</option>
+              <option value="html_unescape">HTML unescape</option>
+              <option value="unicode_escape">Unicode escape</option>
+            </optgroup>
+            <optgroup label="Hash">
+              <option value="hash_sha256">SHA-256 hash</option>
+            </optgroup>
+          </select>
+        </label>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste source text"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Converted output appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="text-metrics" aria-label="Text metrics">
+          <div class="metric-box"><strong id="metricTotal">0</strong><span>Total chars</span></div>
+          <div class="metric-box"><strong id="metricNoSpace">0</strong><span>No-space chars</span></div>
+          <div class="metric-box"><strong id="metricLines">0</strong><span>Lines</span></div>
+          <div class="metric-box"><strong id="metricWords">0</strong><span>Words</span></div>
+          <div class="metric-box"><strong id="metricBytes">0</strong><span>UTF-8 bytes</span></div>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+
+        <p id="statusText" class="status muted">Ready.</p>
+
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related shortcuts</h2>
+        <div class="related-links">
+          <a href="/json-pretty-print/">JSON pretty print page</a>
+          <a href="/base64-encode/">Base64 encode page</a>
+          <a href="/text-clean/">Clean copied text</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-clean/" data-nav="clean">Clean</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+      <a href="/text-case/" data-nav="textCase">Case</a>
+      <a href="/text-structure/" data-nav="structure">Structure</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

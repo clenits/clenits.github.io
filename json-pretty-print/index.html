@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Pretty Print Online | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Format JSON with indentation for readability, validate structure, and minify payloads in your browser."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/json-pretty-print/" />
+    <meta property="og:title" content="JSON Pretty Print Online | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Pretty print, minify, and validate JSON locally without uploading source content."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/json-pretty-print/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="json-pretty-print">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/remove-line-breaks/" data-nav="removeLineBreaks">No Line Breaks</a>
+      <a class="text-subnav-link" href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a class="text-subnav-link" href="/uppercase-converter/" data-nav="uppercase">Uppercase</a>
+      <a class="text-subnav-link" href="/remove-duplicate-lines/" data-nav="dedupe">Remove Duplicates</a>
+      <a class="text-subnav-link" href="/base64-encode/" data-nav="base64">Base64</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>JSON pretty print and validation</h1>
+        <p>Make compact JSON readable, verify syntax, and minify again when needed.</p>
+      </section>
+
+      <section class="card seo-copy">
+        <p>
+          JSON data from APIs and logs is often hard to inspect because it arrives as one long line. A JSON pretty print tool adds
+          indentation and line breaks so objects, arrays, and nested fields are easy to scan. This is useful during integration
+          work, debugging, analytics queries, and backend troubleshooting. Instead of opening a separate IDE plugin, you can paste
+          JSON here and instantly switch between readable and compact formats. If parsing fails, the page keeps your original input
+          and reports the syntax error so you can fix it quickly.
+        </p>
+        <p>
+          This page is designed for privacy and speed. Parsing and formatting happen in your browser with no server upload of the
+          JSON payload. That makes it suitable for internal API examples, test fixtures, and temporary debugging snippets that you
+          do not want to share externally. You can copy or download output for documentation, tickets, and commit notes. The same
+          interface also includes minify and validate actions so you can keep one workflow from inspection to production-ready
+          payload size.
+        </p>
+      </section>
+
+      <section class="card tool-surface">
+        <label class="option">
+          <span>Operation</span>
+          <select id="operationSelect">
+            <option value="json_pretty" selected>Pretty print JSON</option>
+            <option value="json_minify">Minify JSON</option>
+            <option value="json_validate">Validate JSON</option>
+          </select>
+        </label>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="11" placeholder="Paste JSON"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="11" readonly placeholder="Formatted JSON appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+        <p id="statusText" class="status muted">Ready.</p>
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Example</h2>
+        <pre>Input:
+{"user":{"name":"alex","roles":["admin","editor"]}}
+
+Output:
+{
+  "user": {
+    "name": "alex",
+    "roles": [
+      "admin",
+      "editor"
+    ]
+  }
+}</pre>
+      </section>
+
+      <section class="card faq-list" id="faq">
+        <h2>FAQ</h2>
+        <div>
+          <h3>What happens if JSON is invalid?</h3>
+          <p>The tool shows an error status and does not overwrite the input text.</p>
+        </div>
+        <div>
+          <h3>Can this minify JSON too?</h3>
+          <p>Yes. Choose Minify JSON in the operation selector.</p>
+        </div>
+        <div>
+          <h3>Is my API data uploaded?</h3>
+          <p>No. Parsing and formatting run only in the browser.</p>
+        </div>
+        <div>
+          <h3>Does it support arrays and nested objects?</h3>
+          <p>Yes. Any valid JSON structure can be formatted.</p>
+        </div>
+        <div>
+          <h3>Can I use this on mobile?</h3>
+          <p>Yes. The page is responsive and works on mobile browsers.</p>
+        </div>
+        <div>
+          <h3>Can I save formatted output?</h3>
+          <p>Yes. Use Copy Result or Download .txt.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <div class="related-links">
+          <a href="/text-dev/">Developer transforms</a>
+          <a href="/base64-encode/">Base64 encode/decode</a>
+          <a href="/remove-line-breaks/">Remove line breaks</a>
+          <a href="/text-clean/">Text clean tool</a>
+          <a href="/uppercase-converter/">Uppercase converter</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-dev/" data-nav="dev">Dev</a>
+      <a href="/base64-encode/" data-nav="base64">Base64</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>

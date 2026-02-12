@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Base64 Encode / Decode | FreeConvertAll</title>
+    <meta
+      name="description"
+      content="Encode text to Base64 or decode Base64 strings in-browser with no server upload."
+    />
+    <link rel="canonical" href="https://freeconvertall.org/base64-encode/" />
+    <meta property="og:title" content="Base64 Encode / Decode | FreeConvertAll" />
+    <meta
+      property="og:description"
+      content="Fast Base64 encoding and decoding plus related URL/HTML text transforms."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://freeconvertall.org/base64-encode/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body data-text-page="base64-encode">
+    <div class="bg-layer"></div>
+    <header class="topbar">
+      <a href="/" class="brand">FreeConvertAll</a>
+      <nav class="tabs" aria-label="Main navigation">
+        <a class="tab" href="/image/" data-nav="image">Image</a>
+        <a class="tab is-active" href="/text/" data-nav="text">Text</a>
+        <a class="tab" href="/audio/" data-nav="audio">Audio</a>
+        <a class="tab" href="/video/" data-nav="video">Video</a>
+      </nav>
+    </header>
+
+    <nav class="text-subnav card" aria-label="Text tools quick menu">
+      <a class="text-subnav-link" href="/text/" data-nav="textHub">Text Hub</a>
+      <a class="text-subnav-link" href="/remove-line-breaks/" data-nav="removeLineBreaks">No Line Breaks</a>
+      <a class="text-subnav-link" href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a class="text-subnav-link" href="/uppercase-converter/" data-nav="uppercase">Uppercase</a>
+      <a class="text-subnav-link" href="/remove-duplicate-lines/" data-nav="dedupe">Remove Duplicates</a>
+      <a class="text-subnav-link" href="/base64-encode/" data-nav="base64">Base64</a>
+    </nav>
+
+    <main class="landing-main">
+      <section class="hero card">
+        <h1>Base64 encode and decode</h1>
+        <p>Convert plain text to Base64 and decode it back instantly in your browser.</p>
+      </section>
+
+      <section class="card seo-copy">
+        <p>
+          Base64 is frequently used when binary-safe transport is required in text-based channels such as JSON payloads, data URLs,
+          headers, and integration scripts. This page helps you quickly encode plain text to Base64 or decode existing Base64
+          strings back to readable content. It is practical for debugging webhook data, preparing test fixtures, and validating
+          transformation pipelines without opening terminal utilities.
+        </p>
+        <p>
+          All conversion happens locally in the browser, so your input is not uploaded or stored on a remote server. That makes
+          this tool useful for temporary secrets, internal IDs, and private test values that should remain on-device. If you need
+          more than Base64, the same selector includes URL encode/decode and HTML escape/unescape options for adjacent workflows.
+          You can copy the output directly into your app, docs, or API client, or download it as a local text file.
+        </p>
+      </section>
+
+      <section class="card tool-surface">
+        <label class="option">
+          <span>Operation</span>
+          <select id="operationSelect">
+            <option value="base64_encode" selected>Base64 encode</option>
+            <option value="base64_decode">Base64 decode</option>
+            <option value="url_encode">URL encode</option>
+            <option value="url_decode">URL decode</option>
+            <option value="html_escape">HTML escape</option>
+            <option value="html_unescape">HTML unescape</option>
+          </select>
+        </label>
+
+        <div class="text-grid">
+          <label class="option">
+            <span>Input</span>
+            <textarea id="textInput" rows="10" placeholder="Paste text or Base64 string"></textarea>
+          </label>
+          <label class="option">
+            <span>Result</span>
+            <textarea id="textOutput" rows="10" readonly placeholder="Converted output appears here"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+          <button id="copyBtn" class="primary-btn" type="button">Copy Result</button>
+          <button id="downloadBtn" class="ghost-btn" type="button">Download .txt</button>
+        </div>
+        <p id="statusText" class="status muted">Ready.</p>
+        <div class="privacy-note">
+          <div>Text is not sent to any server.</div>
+          <div>All processing runs in your browser.</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Example</h2>
+        <pre>Input: hello world
+Base64: aGVsbG8gd29ybGQ=</pre>
+      </section>
+
+      <section class="card faq-list" id="faq">
+        <h2>FAQ</h2>
+        <div>
+          <h3>Can this decode standard Base64 strings?</h3>
+          <p>Yes. Paste a valid Base64 string and choose Base64 decode.</p>
+        </div>
+        <div>
+          <h3>Does this support UTF-8 text?</h3>
+          <p>Yes. Encoding and decoding preserve UTF-8 characters.</p>
+        </div>
+        <div>
+          <h3>What if decoding fails?</h3>
+          <p>An error status appears when input is not valid Base64.</p>
+        </div>
+        <div>
+          <h3>Are results stored on a server?</h3>
+          <p>No. Conversion is browser-local only.</p>
+        </div>
+        <div>
+          <h3>Can I encode URL strings too?</h3>
+          <p>Yes. Switch to URL encode/decode in the same selector.</p>
+        </div>
+        <div>
+          <h3>Can I export converted output?</h3>
+          <p>Yes. Copy to clipboard or download .txt.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Related tools</h2>
+        <div class="related-links">
+          <a href="/text-dev/">Developer transforms</a>
+          <a href="/json-pretty-print/">JSON pretty print</a>
+          <a href="/remove-line-breaks/">Remove line breaks</a>
+          <a href="/text-clean/">Text clean tool</a>
+          <a href="/uppercase-converter/">Uppercase converter</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a href="/" data-nav="home">Home</a>
+      <a href="/text/" data-nav="textHub">Text Hub</a>
+      <a href="/text-dev/" data-nav="dev">Dev</a>
+      <a href="/json-pretty-print/" data-nav="jsonPretty">JSON Pretty</a>
+      <a href="/text-counter/" data-nav="counter">Counter</a>
+    </footer>
+
+    <script src="/assets/text-tools.js" defer></script>
+  </body>
+</html>
