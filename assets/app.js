@@ -95,6 +95,12 @@ const COPY = {
     tabs_text: "Text",
     tabs_audio: "Audio",
     tabs_video: "Video",
+    subnav_image: "Image",
+    subnav_compress: "Compress",
+    subnav_resize: "Resize",
+    subnav_heic: "HEIC",
+    subnav_webp: "WEBP",
+    subnav_instagram: "Instagram",
     hero_title: "Free and Unlimited Image Converter.",
     hero_desc: "Use it free with no count limit. Your files stay on your device.",
     trust_free: "100% free",
@@ -331,6 +337,12 @@ const COPY = {
     tabs_text: "Texto",
     tabs_audio: "Audio",
     tabs_video: "Video",
+    subnav_image: "Imagen",
+    subnav_compress: "Comprimir",
+    subnav_resize: "Redimensionar",
+    subnav_heic: "HEIC",
+    subnav_webp: "WEBP",
+    subnav_instagram: "Instagram",
     hero_title: "Convertidor de imagenes gratis e ilimitado.",
     hero_desc: "Uso gratis y sin limite de cantidad. Tus archivos se quedan en tu dispositivo.",
     trust_free: "100% gratis",
@@ -434,6 +446,12 @@ const COPY = {
     tabs_text: "文本",
     tabs_audio: "音频",
     tabs_video: "视频",
+    subnav_image: "图片",
+    subnav_compress: "压缩",
+    subnav_resize: "调整尺寸",
+    subnav_heic: "HEIC",
+    subnav_webp: "WEBP",
+    subnav_instagram: "Instagram",
     hero_title: "免费且不限次数的图片转换。",
     hero_desc: "完全免费，无次数限制，文件始终留在你的设备里。",
     trust_free: "100% 免费",
@@ -537,6 +555,12 @@ const COPY = {
     tabs_text: "텍스트",
     tabs_audio: "오디오",
     tabs_video: "비디오",
+    subnav_image: "이미지",
+    subnav_compress: "압축",
+    subnav_resize: "리사이즈",
+    subnav_heic: "HEIC",
+    subnav_webp: "WEBP",
+    subnav_instagram: "인스타",
     hero_title: "무료 무제한 이미지 변환.",
     hero_desc: "완전 무료, 횟수 제한 없음. 파일은 내 기기에만 남습니다.",
     trust_free: "100% 무료",
@@ -640,6 +664,12 @@ const COPY = {
     tabs_text: "テキスト",
     tabs_audio: "音声",
     tabs_video: "動画",
+    subnav_image: "画像",
+    subnav_compress: "圧縮",
+    subnav_resize: "リサイズ",
+    subnav_heic: "HEIC",
+    subnav_webp: "WEBP",
+    subnav_instagram: "Instagram",
     hero_title: "無料・回数無制限の画像変換。",
     hero_desc: "完全無料、回数制限なし。ファイルは端末内にのみ残ります。",
     trust_free: "100% 無料",
@@ -900,6 +930,7 @@ function init() {
   setVideoStatus("video_status_ready");
   setTextStatus("text_status_ready");
   applyIntentPresetFromUrl();
+  syncImageSubnavActive();
   trackEvent("view_page", { page_type: resolvePageType() });
 }
 
@@ -1136,6 +1167,15 @@ function setActiveTab(tabName) {
   dom.videoSection.classList.toggle("is-hidden", state.activeTab !== "video");
 }
 
+function syncImageSubnavActive() {
+  const current = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  const activePath = current === "/" ? "/image" : current;
+  document.querySelectorAll(".image-subnav .subnav-link").forEach((link) => {
+    const href = (link.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+    link.classList.toggle("is-active", href === activePath);
+  });
+}
+
 function applyIntentPresetFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const intent = params.get("intent");
@@ -1279,6 +1319,7 @@ function applyCopy() {
   renderVideoProgress();
   renderVideoStatus();
   renderTextStatus();
+  syncImageSubnavActive();
 }
 
 function translate(key, params = {}) {
