@@ -30,19 +30,24 @@
         heroTitle: "All Conversion Tools In One Place",
         heroDesc: "Choose the workflow that matches your task. Everything runs in your browser.",
         listTitle: "What We Provide",
-        toolTitles: ["Image Home", "Image Expert", "Text Converter", "Audio Converter", "Video Converter"],
+        toolTitles: ["Image Tools", "Text Tools", "Audio Tools", "Video Tools"],
         toolDescs: [
           "Need-based image paths for compression, resize, HEIC, WEBP, and presets.",
-          "Advanced image options and bulk processing for experienced users.",
           "JSON, CSV/TSV, Markdown, and HTML conversion tools.",
           "Trim, fade, normalize, and convert audio formats locally.",
           "Convert format, trim, resize, and extract thumbnails in-browser.",
         ],
+        toolSubmenus: [
+          ["Image Hub", "Compress", "Resize", "HEIC to JPG", "WEBP to JPG", "Instagram"],
+          ["Text Hub", "Clean", "Developer", "Counter", "Case", "Structure", "Special"],
+          ["Audio Converter"],
+          ["Video Converter"],
+        ],
         startTitle: "Recommended Start Paths",
         startList: [
-          "First time user: open Image Home.",
-          "Need direct controls: open Image Expert.",
-          "Text, audio, and video each have dedicated workspaces.",
+          "First time user: start from Image Hub or Text Hub.",
+          "Use each card submenu to jump directly to the exact feature.",
+          "Audio and video each have dedicated conversion workspaces.",
         ],
       },
       pages: {
@@ -270,19 +275,24 @@
         heroTitle: "Todas las herramientas en un solo lugar",
         heroDesc: "Elige el flujo que coincide con tu tarea. Todo funciona en tu navegador.",
         listTitle: "Lo que ofrecemos",
-        toolTitles: ["Inicio Imagen", "Imagen Experto", "Convertidor de Texto", "Convertidor de Audio", "Convertidor de Video"],
+        toolTitles: ["Herramientas de Imagen", "Herramientas de Texto", "Herramientas de Audio", "Herramientas de Video"],
         toolDescs: [
           "Rutas por necesidad para compresion, redimension, HEIC, WEBP y presets.",
-          "Opciones avanzadas y proceso por lotes para usuarios expertos.",
           "Herramientas para JSON, CSV/TSV, Markdown y HTML.",
           "Recorta, aplica fade, normaliza y convierte audio en local.",
           "Convierte formato, recorta, redimensiona y extrae miniaturas en navegador.",
         ],
+        toolSubmenus: [
+          ["Inicio Imagen", "Comprimir", "Redimensionar", "HEIC a JPG", "WEBP a JPG", "Instagram"],
+          ["Hub Texto", "Limpiar", "Desarrollador", "Contador", "Mayus/Minus", "Estructura", "Especial"],
+          ["Convertidor de Audio"],
+          ["Convertidor de Video"],
+        ],
         startTitle: "Rutas recomendadas",
         startList: [
-          "Si eres nuevo, empieza en Inicio Imagen.",
-          "Si quieres control directo, abre Imagen Experto.",
-          "Texto, audio y video tienen espacios dedicados.",
+          "Si eres nuevo, empieza en Inicio Imagen o Hub Texto.",
+          "Usa el submenu de cada tarjeta para abrir la funcion exacta.",
+          "Audio y video tienen espacios dedicados.",
         ],
       },
       pages: {
@@ -479,16 +489,21 @@
         heroTitle: "一个页面查看全部转换功能",
         heroDesc: "按任务选择对应流程，所有处理都在浏览器内完成。",
         listTitle: "我们提供的功能",
-        toolTitles: ["图片主页", "图片专家", "文本转换", "音频转换", "视频转换"],
+        toolTitles: ["图片工具", "文本工具", "音频工具", "视频工具"],
         toolDescs: [
           "按场景进入压缩、改尺寸、HEIC、WEBP和预设流程。",
-          "为熟练用户提供高级参数与批量处理。",
           "支持 JSON、CSV/TSV、Markdown、HTML 文本转换。",
           "本地完成裁剪、淡入淡出、归一化和格式转换。",
           "支持格式转换、裁剪、缩放和缩略图提取。",
         ],
+        toolSubmenus: [
+          ["图片主页", "压缩", "调整尺寸", "HEIC 转 JPG", "WEBP 转 JPG", "Instagram"],
+          ["文本中心", "清理", "开发", "计数", "大小写", "结构", "特殊"],
+          ["音频转换器"],
+          ["视频转换器"],
+        ],
         startTitle: "推荐入口",
-        startList: ["第一次使用建议先看图片主页。", "需要更细控制请进入图片专家。", "文本、音频、视频都有独立工作区。"],
+        startList: ["第一次使用建议先看图片主页或文本中心。", "每张卡片的子菜单可直接进入目标功能。", "音频和视频都提供独立工作区。"],
       },
       pages: {
         "image-hub": {
@@ -620,19 +635,24 @@
         heroTitle: "모든 변환 기능을 한 곳에서",
         heroDesc: "작업에 맞는 흐름을 선택하세요. 모든 처리는 브라우저에서 실행됩니다.",
         listTitle: "제공 기능",
-        toolTitles: ["이미지 홈", "이미지 전문가", "텍스트 변환", "오디오 변환", "비디오 변환"],
+        toolTitles: ["이미지 도구", "텍스트 도구", "오디오 도구", "비디오 도구"],
         toolDescs: [
           "압축, 리사이즈, HEIC, WEBP, 프리셋을 상황별로 제공합니다.",
-          "숙련자를 위한 고급 옵션과 배치 처리 워크스페이스입니다.",
           "JSON, CSV/TSV, Markdown, HTML 텍스트 변환 도구를 제공합니다.",
           "트림, 페이드, 노멀라이즈, 포맷 변환을 로컬에서 처리합니다.",
           "포맷 변환, 트림, 크기 조절, 썸네일 추출을 지원합니다.",
         ],
+        toolSubmenus: [
+          ["이미지 허브", "압축", "리사이즈", "HEIC to JPG", "WEBP to JPG", "인스타그램"],
+          ["텍스트 허브", "정리", "개발", "카운터", "대소문자", "구조", "특수"],
+          ["오디오 변환기"],
+          ["비디오 변환기"],
+        ],
         startTitle: "추천 시작 경로",
         startList: [
-          "처음 사용하면 이미지 홈부터 시작하세요.",
-          "직접 옵션을 만지려면 이미지 전문가로 이동하세요.",
-          "텍스트/오디오/비디오는 각각 전용 작업 공간이 있습니다.",
+          "처음 사용하면 이미지 허브 또는 텍스트 허브부터 시작하세요.",
+          "카드 하위 메뉴에서 필요한 기능으로 바로 이동하세요.",
+          "오디오와 비디오는 전용 작업 공간이 제공됩니다.",
         ],
       },
       pages: {
@@ -765,19 +785,24 @@
         heroTitle: "変換機能を1か所で確認",
         heroDesc: "目的に合うフローを選択してください。処理はすべてブラウザ内で完結します。",
         listTitle: "提供している機能",
-        toolTitles: ["画像ホーム", "画像エキスパート", "テキスト変換", "音声変換", "動画変換"],
+        toolTitles: ["画像ツール", "テキストツール", "音声ツール", "動画ツール"],
         toolDescs: [
           "圧縮、リサイズ、HEIC、WEBP、プリセットを目的別に利用できます。",
-          "上級者向けの詳細オプションとバッチ処理ワークスペースです。",
           "JSON、CSV/TSV、Markdown、HTML の変換ツールです。",
           "トリム、フェード、正規化、形式変換をローカルで処理します。",
           "形式変換、トリム、リサイズ、サムネイル抽出に対応します。",
         ],
+        toolSubmenus: [
+          ["画像ホーム", "圧縮", "リサイズ", "HEIC から JPG", "WEBP から JPG", "Instagram"],
+          ["テキストハブ", "整形", "開発", "カウント", "ケース", "構造", "特殊"],
+          ["音声コンバーター"],
+          ["動画コンバーター"],
+        ],
         startTitle: "おすすめの開始ルート",
         startList: [
-          "初めてなら画像ホームから開始。",
-          "詳細設定を使うなら画像エキスパートへ。",
-          "テキスト/音声/動画は専用ワークスペースを用意しています。",
+          "初めてなら画像ホームまたはテキストハブから開始。",
+          "各カードのサブメニューから目的機能へ直接移動できます。",
+          "音声と動画は専用ワークスペースを用意しています。",
         ],
       },
       pages: {
@@ -1150,6 +1175,14 @@
     cards.forEach((card, index) => {
       setTextNode(card.querySelector("h3"), copy.toolTitles[index]);
       setTextNode(card.querySelector("p"), copy.toolDescs[index]);
+
+      const submenu = card.querySelectorAll(".home-submenu a");
+      const submenuCopy = (copy.toolSubmenus || [])[index];
+      submenu.forEach((item, subIndex) => {
+        if (Array.isArray(submenuCopy) && typeof submenuCopy[subIndex] === "string") {
+          item.textContent = submenuCopy[subIndex];
+        }
+      });
     });
 
     setText(".home-start-title", copy.startTitle);
