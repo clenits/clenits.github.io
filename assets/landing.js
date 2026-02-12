@@ -37,11 +37,26 @@
           "Trim, fade, normalize, and convert audio formats locally.",
           "Convert format, trim, resize, and extract thumbnails in-browser.",
         ],
-        toolSubmenus: [
-          ["Image Hub", "Compress", "Resize", "HEIC to JPG", "WEBP to JPG", "Instagram"],
-          ["Text Hub", "Clean", "Developer", "Counter", "Case", "Structure", "Special"],
-          ["Audio Converter"],
-          ["Video Converter"],
+        toolShortcuts: [
+          [
+            { title: "Image > Hub", desc: "Not sure where to start with image conversion." },
+            { title: "Image > Compress", desc: "File is too large for upload limits and email forms." },
+            { title: "Image > Resize", desc: "Dimensions do not match required width and height." },
+            { title: "Image > HEIC to JPG", desc: "HEIC photos are not opening on your service." },
+            { title: "Image > WEBP to JPG", desc: "WEBP upload is rejected by legacy platforms." },
+            { title: "Image > Instagram Presets", desc: "You need feed, story, or reels dimensions quickly." },
+          ],
+          [
+            { title: "Text > Hub", desc: "Choose a text workflow by your exact need." },
+            { title: "Text > Clean", desc: "Pasted text has broken spaces and messy line breaks." },
+            { title: "Text > Developer", desc: "You need JSON formatting or encode/decode utilities." },
+            { title: "Text > Counter", desc: "Check characters, words, lines, and bytes in real time." },
+            { title: "Text > Case", desc: "Convert uppercase, lowercase, camelCase, and more." },
+            { title: "Text > Structure", desc: "Sort lines, remove duplicates, and restructure lists." },
+            { title: "Text > Special", desc: "Filter emoji, numbers, Korean-only, or English-only text." },
+          ],
+          [{ title: "Audio > Converter", desc: "Trim, fade, normalize volume, and convert audio format." }],
+          [{ title: "Video > Converter", desc: "Convert video format, trim clips, resize, and extract thumbnails." }],
         ],
         startTitle: "Recommended Start Paths",
         startList: [
@@ -642,11 +657,26 @@
           "트림, 페이드, 노멀라이즈, 포맷 변환을 로컬에서 처리합니다.",
           "포맷 변환, 트림, 크기 조절, 썸네일 추출을 지원합니다.",
         ],
-        toolSubmenus: [
-          ["이미지 허브", "압축", "리사이즈", "HEIC to JPG", "WEBP to JPG", "인스타그램"],
-          ["텍스트 허브", "정리", "개발", "카운터", "대소문자", "구조", "특수"],
-          ["오디오 변환기"],
-          ["비디오 변환기"],
+        toolShortcuts: [
+          [
+            { title: "이미지 > 허브", desc: "어떤 이미지 기능부터 시작할지 모르겠을 때." },
+            { title: "이미지 > 압축", desc: "파일이 너무 커서 업로드 제한에 걸릴 때." },
+            { title: "이미지 > 리사이즈", desc: "가로/세로 픽셀 규격이 맞지 않을 때." },
+            { title: "이미지 > HEIC to JPG", desc: "HEIC 파일이 열리지 않거나 업로드가 안 될 때." },
+            { title: "이미지 > WEBP to JPG", desc: "WEBP 업로드가 거부되는 서비스일 때." },
+            { title: "이미지 > 인스타그램", desc: "피드/스토리/릴스 규격이 바로 필요할 때." },
+          ],
+          [
+            { title: "텍스트 > 허브", desc: "상황별 텍스트 도구를 먼저 고를 때." },
+            { title: "텍스트 > 정리", desc: "복붙 텍스트 공백/줄바꿈이 깨졌을 때." },
+            { title: "텍스트 > 개발", desc: "JSON 포맷이나 인코딩 변환이 필요할 때." },
+            { title: "텍스트 > 카운터", desc: "글자/단어/줄 수를 실시간으로 확인할 때." },
+            { title: "텍스트 > 대소문자", desc: "대문자, camelCase 등 케이스 변환이 필요할 때." },
+            { title: "텍스트 > 구조", desc: "중복 제거, 정렬, 줄/쉼표 변환이 필요할 때." },
+            { title: "텍스트 > 특수", desc: "이모지 제거, 숫자만/한글만 추출이 필요할 때." },
+          ],
+          [{ title: "오디오 > 변환기", desc: "트림, 페이드, 볼륨 정리, 포맷 변환이 필요할 때." }],
+          [{ title: "비디오 > 변환기", desc: "포맷 변환, 잘라내기, 리사이즈, 썸네일 추출이 필요할 때." }],
         ],
         startTitle: "추천 시작 경로",
         startList: [
@@ -1165,6 +1195,7 @@
 
   function applyHomeCopy() {
     const copy = getCopy().homeContent || COPY.en.homeContent;
+    const fallback = COPY.en.homeContent;
     if (!copy) return;
 
     setText(".home-title", copy.heroTitle);
@@ -1176,17 +1207,48 @@
       setTextNode(card.querySelector("h3"), copy.toolTitles[index]);
       setTextNode(card.querySelector("p"), copy.toolDescs[index]);
 
-      const submenu = card.querySelectorAll(".home-submenu a");
-      const submenuCopy = (copy.toolSubmenus || [])[index];
-      submenu.forEach((item, subIndex) => {
-        if (Array.isArray(submenuCopy) && typeof submenuCopy[subIndex] === "string") {
-          item.textContent = submenuCopy[subIndex];
-        }
+      const shortcuts = card.querySelectorAll(".home-shortcut");
+      const shortcutCopy = (copy.toolShortcuts || [])[index];
+      const fallbackShortcutCopy = (fallback.toolShortcuts || [])[index];
+      shortcuts.forEach((link, subIndex) => {
+        const strong = link.querySelector("strong");
+        const desc = link.querySelector("span");
+        const rawEntry = Array.isArray(shortcutCopy) ? shortcutCopy[subIndex] : undefined;
+        const rawFallback = Array.isArray(fallbackShortcutCopy) ? fallbackShortcutCopy[subIndex] : undefined;
+        const entry = normalizeShortcutEntry(rawEntry, rawFallback);
+        if (!entry) return;
+        if (strong) strong.textContent = entry.title;
+        if (desc) desc.textContent = entry.desc;
       });
     });
 
     setText(".home-start-title", copy.startTitle);
     setListText(".home-start-list li", copy.startList);
+  }
+
+  function normalizeShortcutEntry(entry, fallback) {
+    if (entry && typeof entry === "object") {
+      return {
+        title: typeof entry.title === "string" ? entry.title : typeof fallback?.title === "string" ? fallback.title : "",
+        desc: typeof entry.desc === "string" ? entry.desc : typeof fallback?.desc === "string" ? fallback.desc : "",
+      };
+    }
+
+    if (typeof entry === "string") {
+      return {
+        title: entry,
+        desc: typeof fallback?.desc === "string" ? fallback.desc : "",
+      };
+    }
+
+    if (fallback && typeof fallback === "object") {
+      return {
+        title: typeof fallback.title === "string" ? fallback.title : "",
+        desc: typeof fallback.desc === "string" ? fallback.desc : "",
+      };
+    }
+
+    return null;
   }
 
   function applyImageHubCopy(page) {

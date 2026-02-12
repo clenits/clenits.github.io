@@ -776,29 +776,40 @@ textarea {
 }
 
 .home-submenu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: grid;
+  gap: 0.5rem;
   margin-top: 0.7rem;
 }
 
-.home-submenu a {
+.home-shortcut {
   text-decoration: none;
-  color: var(--ink-1);
   border: 1px solid #d3dac5;
-  border-radius: 999px;
-  padding: 0.24rem 0.62rem;
-  font-size: 0.82rem;
-  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.45rem 0.55rem;
   background: #f8faf3;
-  transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+  transition: border-color 140ms ease, background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+  display: grid;
+  gap: 0.18rem;
 }
 
-.home-submenu a:hover,
-.home-submenu a:focus-visible {
+.home-shortcut strong {
+  color: var(--ink-1);
+  font-size: 0.87rem;
+  line-height: 1.15;
+}
+
+.home-shortcut span {
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.28;
+}
+
+.home-shortcut:hover,
+.home-shortcut:focus-visible {
   border-color: #7eaa86;
   background: #edf6e6;
   transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(39, 45, 33, 0.1);
   outline: none;
 }
 
