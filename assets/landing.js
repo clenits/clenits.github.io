@@ -297,11 +297,26 @@
           "Recorta, aplica fade, normaliza y convierte audio en local.",
           "Convierte formato, recorta, redimensiona y extrae miniaturas en navegador.",
         ],
-        toolSubmenus: [
-          ["Inicio Imagen", "Comprimir", "Redimensionar", "HEIC a JPG", "WEBP a JPG", "Instagram"],
-          ["Hub Texto", "Limpiar", "Desarrollador", "Contador", "Mayus/Minus", "Estructura", "Especial"],
-          ["Convertidor de Audio"],
-          ["Convertidor de Video"],
+        toolShortcuts: [
+          [
+            { title: "Imagen > Hub", desc: "No sabes por donde empezar con conversion de imagen." },
+            { title: "Imagen > Comprimir", desc: "El archivo es demasiado grande para limites de carga." },
+            { title: "Imagen > Redimensionar", desc: "El ancho y alto no cumplen el requisito." },
+            { title: "Imagen > HEIC a JPG", desc: "Tus fotos HEIC no se abren en el servicio." },
+            { title: "Imagen > WEBP a JPG", desc: "La plataforma rechaza la carga de WEBP." },
+            { title: "Imagen > Presets Instagram", desc: "Necesitas medidas rapidas para feed e historias." },
+          ],
+          [
+            { title: "Texto > Hub", desc: "Elige el flujo de texto segun tu necesidad." },
+            { title: "Texto > Limpiar", desc: "El texto pegado tiene espacios y saltos rotos." },
+            { title: "Texto > Desarrollador", desc: "Necesitas utilidades JSON o encode/decode." },
+            { title: "Texto > Contador", desc: "Revisa caracteres, palabras, lineas y bytes." },
+            { title: "Texto > Mayus/Minus", desc: "Convierte mayusculas, minusculas y formatos." },
+            { title: "Texto > Estructura", desc: "Ordena lineas, elimina duplicados y reestructura." },
+            { title: "Texto > Especial", desc: "Filtra emoji, numeros o solo texto por idioma." },
+          ],
+          [{ title: "Audio > Convertidor", desc: "Recorta, aplica fade y convierte formato de audio." }],
+          [{ title: "Video > Convertidor", desc: "Convierte formato, recorta, redimensiona y extrae miniatura." }],
         ],
         startTitle: "Rutas recomendadas",
         startList: [
@@ -511,11 +526,26 @@
           "本地完成裁剪、淡入淡出、归一化和格式转换。",
           "支持格式转换、裁剪、缩放和缩略图提取。",
         ],
-        toolSubmenus: [
-          ["图片主页", "压缩", "调整尺寸", "HEIC 转 JPG", "WEBP 转 JPG", "Instagram"],
-          ["文本中心", "清理", "开发", "计数", "大小写", "结构", "特殊"],
-          ["音频转换器"],
-          ["视频转换器"],
+        toolShortcuts: [
+          [
+            { title: "图片 > 主页", desc: "不确定从哪个图片功能开始时使用。" },
+            { title: "图片 > 压缩", desc: "文件过大，无法通过上传限制。" },
+            { title: "图片 > 调整尺寸", desc: "宽高不符合平台要求时使用。" },
+            { title: "图片 > HEIC 转 JPG", desc: "HEIC 照片在当前服务无法打开。" },
+            { title: "图片 > WEBP 转 JPG", desc: "旧平台不接受 WEBP 上传。" },
+            { title: "图片 > Instagram 预设", desc: "你需要快速套用 feed/story/reels 尺寸。" },
+          ],
+          [
+            { title: "文本 > 中心", desc: "按需求选择合适的文本工作流。" },
+            { title: "文本 > 清理", desc: "粘贴文本出现空格和换行混乱时使用。" },
+            { title: "文本 > 开发", desc: "需要 JSON 或编码解码转换时使用。" },
+            { title: "文本 > 计数", desc: "实时查看字符、单词、行数和字节。" },
+            { title: "文本 > 大小写", desc: "快速转换大写、小写和命名格式。" },
+            { title: "文本 > 结构", desc: "排序、去重并重组列表结构。" },
+            { title: "文本 > 特殊", desc: "过滤表情、数字或按语言筛选文本。" },
+          ],
+          [{ title: "音频 > 转换器", desc: "剪辑、淡入淡出、音量归一化和格式转换。" }],
+          [{ title: "视频 > 转换器", desc: "格式转换、裁剪、缩放和缩略图提取。" }],
         ],
         startTitle: "推荐入口",
         startList: ["第一次使用建议先看图片主页或文本中心。", "每张卡片的子菜单可直接进入目标功能。", "音频和视频都提供独立工作区。"],
@@ -822,11 +852,26 @@
           "トリム、フェード、正規化、形式変換をローカルで処理します。",
           "形式変換、トリム、リサイズ、サムネイル抽出に対応します。",
         ],
-        toolSubmenus: [
-          ["画像ホーム", "圧縮", "リサイズ", "HEIC から JPG", "WEBP から JPG", "Instagram"],
-          ["テキストハブ", "整形", "開発", "カウント", "ケース", "構造", "特殊"],
-          ["音声コンバーター"],
-          ["動画コンバーター"],
+        toolShortcuts: [
+          [
+            { title: "画像 > ホーム", desc: "どの画像機能から始めるか迷うときに。" },
+            { title: "画像 > 圧縮", desc: "ファイルが大きくアップロード制限にかかるとき。" },
+            { title: "画像 > リサイズ", desc: "幅と高さの規格が合わないとき。" },
+            { title: "画像 > HEIC から JPG", desc: "HEIC がサービスで開けないとき。" },
+            { title: "画像 > WEBP から JPG", desc: "WEBP が非対応のプラットフォーム向け。" },
+            { title: "画像 > Instagram プリセット", desc: "フィード/ストーリー/リールのサイズが必要なとき。" },
+          ],
+          [
+            { title: "テキスト > ハブ", desc: "目的に合わせてテキストフローを選択。" },
+            { title: "テキスト > 整形", desc: "貼り付けたテキストの空白や改行が崩れたとき。" },
+            { title: "テキスト > 開発", desc: "JSON 整形やエンコード変換が必要なとき。" },
+            { title: "テキスト > カウント", desc: "文字数、単語数、行数、バイト数を即確認。" },
+            { title: "テキスト > ケース", desc: "大文字/小文字や命名形式を変換。" },
+            { title: "テキスト > 構造", desc: "重複削除、並び替え、リスト再構成を行うとき。" },
+            { title: "テキスト > 特殊", desc: "絵文字除去や数字/言語フィルタを使うとき。" },
+          ],
+          [{ title: "音声 > コンバーター", desc: "トリム、フェード、音量調整、形式変換。" }],
+          [{ title: "動画 > コンバーター", desc: "形式変換、カット、リサイズ、サムネイル抽出。" }],
         ],
         startTitle: "おすすめの開始ルート",
         startList: [
@@ -1227,24 +1272,27 @@
   }
 
   function normalizeShortcutEntry(entry, fallback) {
+    const fallbackTitle = fallback && typeof fallback.title === "string" ? fallback.title : "";
+    const fallbackDesc = fallback && typeof fallback.desc === "string" ? fallback.desc : "";
+
     if (entry && typeof entry === "object") {
       return {
-        title: typeof entry.title === "string" ? entry.title : typeof fallback?.title === "string" ? fallback.title : "",
-        desc: typeof entry.desc === "string" ? entry.desc : typeof fallback?.desc === "string" ? fallback.desc : "",
+        title: typeof entry.title === "string" ? entry.title : fallbackTitle,
+        desc: typeof entry.desc === "string" ? entry.desc : fallbackDesc,
       };
     }
 
     if (typeof entry === "string") {
       return {
         title: entry,
-        desc: typeof fallback?.desc === "string" ? fallback.desc : "",
+        desc: fallbackDesc,
       };
     }
 
     if (fallback && typeof fallback === "object") {
       return {
-        title: typeof fallback.title === "string" ? fallback.title : "",
-        desc: typeof fallback.desc === "string" ? fallback.desc : "",
+        title: fallbackTitle,
+        desc: fallbackDesc,
       };
     }
 

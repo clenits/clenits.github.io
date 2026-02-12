@@ -789,16 +789,34 @@ textarea {
   background: #f8faf3;
   transition: border-color 140ms ease, background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
   display: grid;
-  gap: 0.18rem;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  grid-template-areas:
+    "icon title"
+    "icon desc";
+  column-gap: 0.42rem;
+  row-gap: 0.12rem;
+  align-items: start;
+}
+
+.home-shortcut::before {
+  content: attr(data-icon);
+  grid-area: icon;
+  font-size: 0.98rem;
+  line-height: 1.2;
+  margin-top: 0.02rem;
 }
 
 .home-shortcut strong {
+  grid-area: title;
+  display: block;
   color: var(--ink-1);
   font-size: 0.87rem;
   line-height: 1.15;
 }
 
 .home-shortcut span {
+  grid-area: desc;
+  display: block;
   color: var(--ink-muted);
   font-size: 0.78rem;
   line-height: 1.28;
