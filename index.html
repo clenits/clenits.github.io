@@ -3,24 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LocalConvert | Free Unlimited Private Image Converter</title>
+    <title>FreeConvertAll | Free Unlimited Browser Converter</title>
     <meta
       name="description"
-      content="Free unlimited image converter in your browser. No upload, simple and private."
+      content="Free unlimited image, text, audio, and video conversion in your browser. No file upload required."
     />
-    <meta property="og:title" content="LocalConvert | Free Unlimited Private Image Converter" />
+    <link rel="canonical" href="https://freeconvertall.org/" />
+    <meta property="og:title" content="FreeConvertAll | Free Unlimited Browser Converter" />
     <meta
       property="og:description"
       content="Free unlimited image conversion. Your files stay on your device."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dawoonlee.github.io/freeAllConverter/" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <meta property="og:url" content="https://freeconvertall.org/" />
+    <link rel="stylesheet" href="/assets/styles.css" />
   </head>
   <body>
     <div class="bg-layer"></div>
     <header class="topbar">
-      <a href="#" class="brand">LocalConvert</a>
+      <a href="/" class="brand">FreeConvertAll</a>
       <nav class="tabs" aria-label="Main tabs">
         <button class="tab is-active" type="button" data-tab="image" data-i18n="tabs_image">Image</button>
         <button class="tab" type="button" data-tab="text" data-i18n="tabs_text">Text</button>
@@ -57,6 +58,29 @@
         </div>
       </section>
 
+      <section class="card">
+        <h2>Start by your situation</h2>
+        <p class="muted">Choose the flow that matches your issue, then apply recommended defaults.</p>
+        <div class="link-grid" aria-label="Intent shortcuts">
+          <a class="link-card" href="/compress-image/" data-intent="compress-image">
+            <h3>File is too large</h3>
+            <p>Compress for upload limits and email attachments.</p>
+          </a>
+          <a class="link-card" href="/resize-image/" data-intent="resize-image">
+            <h3>Dimensions are wrong</h3>
+            <p>Resize width and height to required pixel values.</p>
+          </a>
+          <a class="link-card" href="/heic-to-jpg/" data-intent="heic-to-jpg">
+            <h3>HEIC not supported</h3>
+            <p>Convert to JPG for wider compatibility.</p>
+          </a>
+          <a class="link-card" href="/webp-to-jpg/" data-intent="webp-to-jpg">
+            <h3>WEBP rejected</h3>
+            <p>Convert to JPG or PNG based on compatibility needs.</p>
+          </a>
+        </div>
+      </section>
+
       <section id="imageSection" class="converter card" aria-labelledby="converterTitle">
         <div class="section-head">
           <h2 id="converterTitle" data-i18n="converter_title">Image Converter</h2>
@@ -66,12 +90,22 @@
         </div>
 
         <div id="dropZone" class="drop-zone" tabindex="0">
-          <p data-i18n="drop_hint">Drop PNG/JPG/WebP/GIF files here</p>
+          <p data-i18n="drop_hint">Drop PNG/JPG/WebP/GIF/HEIC files here</p>
           <button id="selectFilesBtn" class="ghost-btn" type="button" data-i18n="choose_files">
             Choose Files
           </button>
-          <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden />
+          <input
+            id="fileInput"
+            type="file"
+            accept="image/png,image/jpeg,image/webp,image/gif,image/heic,image/heif,.heic,.heif"
+            multiple
+            hidden
+          />
           <small id="selectedSummary" class="muted" data-i18n="selected_none">No files selected</small>
+        </div>
+
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot below uploader">
+          Ad slot
         </div>
 
         <div class="options-grid">
@@ -125,6 +159,10 @@
         <div class="results-block">
           <h3 data-i18n="result_title">Results</h3>
           <ul id="resultList" class="result-list"></ul>
+        </div>
+
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot below results">
+          Ad slot
         </div>
       </section>
 
@@ -436,14 +474,17 @@
       </section>
 
       <section id="about" class="card content-section">
-        <h2 data-i18n="about_title">About LocalConvert</h2>
-        <p data-i18n="about_body">LocalConvert is a free converter that runs entirely in your browser.</p>
+        <h2 data-i18n="about_title">About FreeConvertAll</h2>
+        <p data-i18n="about_body">FreeConvertAll is a free converter that runs entirely in your browser.</p>
       </section>
 
       <section id="faq" class="card content-section">
         <h2 data-i18n="faq_title">FAQ</h2>
         <h3 data-i18n="faq_q1">Are my files uploaded?</h3>
         <p data-i18n="faq_a1">No. Files are processed locally in your browser memory only.</p>
+        <div class="ad-slot" role="complementary" aria-label="Advertisement slot inside FAQ">
+          Ad slot
+        </div>
         <h3 data-i18n="faq_q2">Why did conversion fail?</h3>
         <p data-i18n="faq_a2">Large images may exceed memory limits. Try fewer files or smaller dimensions.</p>
       </section>
@@ -478,6 +519,7 @@
       <a href="#contact" data-i18n="footer_contact">Contact</a>
     </footer>
 
+    <script src="https://unpkg.com/heic2any/dist/heic2any.min.js" defer></script>
     <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js" defer></script>
     <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js" defer></script>
     <script src="assets/app.js" defer></script>

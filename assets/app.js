@@ -22,6 +22,73 @@ const TEXT_TOOLS = [
   { id: "html_to_txt", labelKey: "text_tool_html_to_txt" },
 ];
 
+const IMAGE_INTENT_PRESETS = {
+  compress: {
+    nameKey: "intent_name_compress",
+    format: "image/jpeg",
+    quality: 82,
+    width: "",
+    height: "",
+    keepRatio: true,
+  },
+  resize: {
+    nameKey: "intent_name_resize",
+    format: "image/jpeg",
+    quality: 92,
+    width: 1080,
+    height: 1080,
+    keepRatio: true,
+  },
+  "heic-to-jpg": {
+    nameKey: "intent_name_heic_to_jpg",
+    format: "image/jpeg",
+    quality: 92,
+    width: "",
+    height: "",
+    keepRatio: true,
+  },
+  "webp-to-jpg": {
+    nameKey: "intent_name_webp_to_jpg",
+    format: "image/jpeg",
+    quality: 90,
+    width: "",
+    height: "",
+    keepRatio: true,
+  },
+  "instagram-profile": {
+    nameKey: "intent_name_instagram_profile",
+    format: "image/jpeg",
+    quality: 92,
+    width: 320,
+    height: 320,
+    keepRatio: true,
+  },
+  "instagram-feed-square": {
+    nameKey: "intent_name_instagram_feed_square",
+    format: "image/jpeg",
+    quality: 92,
+    width: 1080,
+    height: 1080,
+    keepRatio: true,
+  },
+  "instagram-feed-portrait": {
+    nameKey: "intent_name_instagram_feed_portrait",
+    format: "image/jpeg",
+    quality: 92,
+    width: 1080,
+    height: 1350,
+    keepRatio: true,
+  },
+  "instagram-story": {
+    nameKey: "intent_name_instagram_story",
+    format: "image/jpeg",
+    quality: 92,
+    width: 1080,
+    height: 1920,
+    keepRatio: true,
+  },
+};
+
 const COPY = {
   en: {
     tabs_image: "Image",
@@ -38,7 +105,7 @@ const COPY = {
     trust_privacy: "Hidden photo info removed by default",
     converter_title: "Image Converter",
     converter_subtitle: "Drag files or choose images from your device.",
-    drop_hint: "Drop PNG/JPG/WebP/GIF files here",
+    drop_hint: "Drop PNG/JPG/WebP/GIF/HEIC files here",
     choose_files: "Choose Files",
     selected_none: "No files selected",
     selected_count: "{{count}} file(s) selected",
@@ -59,6 +126,17 @@ const COPY = {
     status_done: "Conversion complete. Download your files below.",
     status_warn_unsupported: "Skipped unsupported file(s): {{names}}",
     status_download_all: "Downloading all converted files one by one.",
+    status_intent_ready: "Preset loaded: {{intent}}. Upload image files to continue.",
+    status_webp_alpha_recommend:
+      "Transparency detected in WEBP. PNG output is recommended and has been selected automatically.",
+    intent_name_compress: "Compress image",
+    intent_name_resize: "Resize image",
+    intent_name_heic_to_jpg: "HEIC to JPG",
+    intent_name_webp_to_jpg: "WEBP to JPG",
+    intent_name_instagram_profile: "Instagram profile 320x320",
+    intent_name_instagram_feed_square: "Instagram feed 1080x1080",
+    intent_name_instagram_feed_portrait: "Instagram feed 1080x1350",
+    intent_name_instagram_story: "Instagram story 1080x1920",
     result_title: "Results",
     result_empty: "No converted files yet.",
     result_failed: "Failed",
@@ -217,8 +295,8 @@ const COPY = {
     text_tool_html_to_md: "HTML -> Markdown",
     text_tool_txt_to_html: "TXT -> HTML",
     text_tool_html_to_txt: "HTML -> TXT",
-    about_title: "About LocalConvert",
-    about_body: "LocalConvert is a free converter that runs entirely in your browser.",
+    about_title: "About FreeConvertAll",
+    about_body: "FreeConvertAll is a free converter that runs entirely in your browser.",
     faq_title: "FAQ",
     faq_q1: "Are my files uploaded?",
     faq_a1: "No. Files are processed locally in your browser memory only.",
@@ -310,8 +388,8 @@ const COPY = {
     text_tool_html_to_md: "HTML -> Markdown",
     text_tool_txt_to_html: "TXT -> HTML",
     text_tool_html_to_txt: "HTML -> TXT",
-    about_title: "Sobre LocalConvert",
-    about_body: "LocalConvert es un convertidor gratis que funciona en tu navegador.",
+    about_title: "Sobre FreeConvertAll",
+    about_body: "FreeConvertAll es un convertidor gratis que funciona en tu navegador.",
     faq_title: "Preguntas frecuentes",
     faq_q1: "Se suben mis archivos?",
     faq_a1: "No. Los archivos se procesan solo en la memoria del navegador.",
@@ -403,8 +481,8 @@ const COPY = {
     text_tool_html_to_md: "HTML -> Markdown",
     text_tool_txt_to_html: "TXT -> HTML",
     text_tool_html_to_txt: "HTML -> TXT",
-    about_title: "关于 LocalConvert",
-    about_body: "LocalConvert 是一个免费、在浏览器内运行的转换工具。",
+    about_title: "关于 FreeConvertAll",
+    about_body: "FreeConvertAll 是一个免费、在浏览器内运行的转换工具。",
     faq_title: "常见问题",
     faq_q1: "文件会被上传吗?",
     faq_a1: "不会。文件仅在浏览器内存中处理。",
@@ -496,8 +574,8 @@ const COPY = {
     text_tool_html_to_md: "HTML -> Markdown",
     text_tool_txt_to_html: "TXT -> HTML",
     text_tool_html_to_txt: "HTML -> TXT",
-    about_title: "LocalConvert 소개",
-    about_body: "LocalConvert는 브라우저에서 바로 쓰는 무료 변환 서비스입니다.",
+    about_title: "FreeConvertAll 소개",
+    about_body: "FreeConvertAll은 브라우저에서 바로 쓰는 무료 변환 서비스입니다.",
     faq_title: "자주 묻는 질문",
     faq_q1: "파일이 업로드되나요?",
     faq_a1: "아니요. 파일은 브라우저 메모리에서만 처리됩니다.",
@@ -589,8 +667,8 @@ const COPY = {
     text_tool_html_to_md: "HTML -> Markdown",
     text_tool_txt_to_html: "TXT -> HTML",
     text_tool_html_to_txt: "HTML -> TXT",
-    about_title: "LocalConvert について",
-    about_body: "LocalConvert はブラウザで使える無料の変換サービスです。",
+    about_title: "FreeConvertAll について",
+    about_body: "FreeConvertAll はブラウザで使える無料の変換サービスです。",
     faq_title: "FAQ",
     faq_q1: "ファイルはアップロードされますか?",
     faq_a1: "いいえ。ファイルはブラウザメモリ内でのみ処理されます。",
@@ -647,7 +725,8 @@ const state = {
   textStatus: { key: "text_status_ready", params: {}, isWarn: false },
 };
 
-const supportedTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/gif"]);
+const supportedTypes = new Set(["image/png", "image/jpeg", "image/webp", "image/gif", "image/heic", "image/heif"]);
+const supportedImageExtensions = new Set(["png", "jpg", "jpeg", "webp", "gif", "heic", "heif"]);
 const supportedAudioExtensions = new Set(["mp3", "wav", "ogg", "m4a", "aac", "webm"]);
 const supportedVideoExtensions = new Set(["mp4", "mov", "m4v", "webm", "mkv", "avi"]);
 let sharedAudioContext = null;
@@ -770,6 +849,8 @@ function init() {
   renderVideoProgress();
   setVideoStatus("video_status_ready");
   setTextStatus("text_status_ready");
+  applyIntentPresetFromUrl();
+  trackEvent("view_page", { page_type: resolvePageType() });
 }
 
 function detectLanguage() {
@@ -842,6 +923,24 @@ function bindEvents() {
     if (!event.target.closest(".language-picker")) {
       dom.languageButton.setAttribute("aria-expanded", "false");
       dom.languageMenu.hidden = true;
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const intentLink = event.target.closest("a[data-intent]");
+    if (intentLink) {
+      trackEvent("select_intent", {
+        page_type: resolvePageType(),
+        intent: intentLink.dataset.intent || "unknown",
+      });
+    }
+
+    const recommendLink = event.target.closest("a[data-recommend]");
+    if (recommendLink) {
+      trackEvent("recommend_click", {
+        page_type: resolvePageType(),
+        target_page: recommendLink.dataset.recommend || "unknown",
+      });
     }
   });
 
@@ -987,6 +1086,102 @@ function setActiveTab(tabName) {
   dom.videoSection.classList.toggle("is-hidden", state.activeTab !== "video");
 }
 
+function applyIntentPresetFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const intent = params.get("intent");
+  if (!intent) return;
+
+  const preset = IMAGE_INTENT_PRESETS[intent];
+  if (!preset) return;
+
+  dom.formatSelect.value = preset.format;
+  dom.qualityInput.value = String(preset.quality);
+  dom.widthInput.value = preset.width === "" ? "" : String(preset.width);
+  dom.heightInput.value = preset.height === "" ? "" : String(preset.height);
+  dom.keepRatioInput.checked = Boolean(preset.keepRatio);
+  syncQualityLabel();
+  setActiveTab("image");
+  setStatus(
+    translate("status_intent_ready", {
+      intent: translate(preset.nameKey),
+    }),
+  );
+}
+
+function resolvePageType() {
+  const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  if (path === "/compress-image") return "compress-image";
+  if (path === "/resize-image") return "resize-image";
+  if (path === "/heic-to-jpg") return "heic-to-jpg";
+  if (path === "/webp-to-jpg") return "webp-to-jpg";
+  if (path === "/instagram-image-size") return "instagram-image-size";
+  if (path === "/image") return "image-hub";
+  return "home";
+}
+
+function trackEvent(eventName, payload = {}) {
+  if (Array.isArray(window.dataLayer)) {
+    window.dataLayer.push({ event: eventName, ...payload });
+  }
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, payload);
+  }
+}
+
+function toMegabytes(bytes) {
+  return Number((bytes / (1024 * 1024)).toFixed(3));
+}
+
+function bitmapHasTransparency(bitmap) {
+  const sampleCanvas = document.createElement("canvas");
+  sampleCanvas.width = bitmap.width;
+  sampleCanvas.height = bitmap.height;
+  const ctx = sampleCanvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return false;
+
+  ctx.drawImage(bitmap, 0, 0);
+  const { data } = ctx.getImageData(0, 0, bitmap.width, bitmap.height);
+  for (let i = 3; i < data.length; i += 16) {
+    if (data[i] < 255) return true;
+  }
+  return false;
+}
+
+async function trackAnalyzeComplete(file) {
+  if (!file) return;
+
+  const payload = {
+    page_type: resolvePageType(),
+    format: file.type || getFileExtension(file.name) || "unknown",
+    size_mb: toMegabytes(file.size),
+    width: null,
+    height: null,
+    has_alpha: null,
+  };
+
+  try {
+    const bitmap = await createImageBitmap(file);
+    payload.width = bitmap.width;
+    payload.height = bitmap.height;
+    if (file.type === "image/webp") {
+      payload.has_alpha = bitmapHasTransparency(bitmap);
+      if (payload.has_alpha) {
+        dom.formatSelect.value = "image/png";
+        setStatus(translate("status_webp_alpha_recommend"));
+      }
+    } else if (file.type === "image/png") {
+      payload.has_alpha = true;
+    } else {
+      payload.has_alpha = false;
+    }
+    bitmap.close();
+  } catch (_error) {
+    // Keep null dimensions when browser cannot decode immediately.
+  }
+
+  trackEvent("analyze_complete", payload);
+}
+
 function setLanguage(langCode, persist) {
   const next = COPY[langCode] ? langCode : "en";
   state.lang = next;
@@ -1105,12 +1300,13 @@ function renderVideoProgress() {
 function addFiles(fileList) {
   const files = Array.from(fileList || []);
   if (!files.length) return;
+  trackEvent("upload_start", { page_type: resolvePageType(), count: files.length });
 
   const valid = [];
   const invalidNames = [];
 
   files.forEach((file) => {
-    if (supportedTypes.has(file.type)) {
+    if (isSupportedImageFile(file)) {
       valid.push(file);
     } else {
       invalidNames.push(file.name);
@@ -1125,9 +1321,20 @@ function addFiles(fileList) {
       unique.set(key, file);
     });
     state.files = Array.from(unique.values());
+    trackEvent("upload_success", {
+      page_type: resolvePageType(),
+      accepted_count: valid.length,
+      total_selected: files.length,
+    });
+    void trackAnalyzeComplete(valid[0]);
   }
 
   if (invalidNames.length) {
+    trackEvent("upload_fail", {
+      page_type: resolvePageType(),
+      reason: valid.length ? "partial_unsupported_format" : "unsupported_format",
+      rejected_count: invalidNames.length,
+    });
     setStatus(
       translate("status_warn_unsupported", {
         names: invalidNames.slice(0, 3).join(", "),
@@ -1156,6 +1363,7 @@ async function convertAll() {
     return;
   }
 
+  const convertStartedAt = performance.now();
   state.results = [];
   renderResults();
   dom.downloadAllBtn.disabled = true;
@@ -1169,14 +1377,25 @@ async function convertAll() {
   };
 
   setStatus(translate("status_converting", { count: state.files.length }));
+  trackEvent("convert_start", {
+    page_type: resolvePageType(),
+    operation: "image_convert",
+    input_count: state.files.length,
+    output_format: options.format,
+  });
+
+  let successCount = 0;
+  let failCount = 0;
 
   for (let index = 0; index < state.files.length; index += 1) {
     const file = state.files[index];
     try {
       const converted = await convertFile(file, options);
       state.results.push(converted);
+      successCount += 1;
       setStatus(translate("status_progress", { done: index + 1, total: state.files.length }));
     } catch (error) {
+      failCount += 1;
       state.results.push({
         name: file.name,
         error: error instanceof Error ? error.message : String(error),
@@ -1187,6 +1406,24 @@ async function convertAll() {
   renderResults();
   dom.downloadAllBtn.disabled = !state.results.some((item) => item.blob);
   setStatus(translate("status_done"));
+  const elapsedMs = Math.round(performance.now() - convertStartedAt);
+  if (successCount > 0) {
+    trackEvent("convert_success", {
+      page_type: resolvePageType(),
+      output_format: options.format,
+      success_count: successCount,
+      fail_count: failCount,
+      ms: elapsedMs,
+    });
+  }
+  if (failCount > 0) {
+    trackEvent("convert_fail", {
+      page_type: resolvePageType(),
+      reason: successCount > 0 ? "partial_failed" : "all_failed",
+      fail_count: failCount,
+      ms: elapsedMs,
+    });
+  }
 }
 
 function normalizeDimension(rawValue) {
@@ -1196,7 +1433,8 @@ function normalizeDimension(rawValue) {
 }
 
 async function convertFile(file, options) {
-  const bitmap = await createImageBitmap(file);
+  const sourceBlob = isHeicFile(file) ? await decodeHeicToJpegBlob(file) : file;
+  const bitmap = await createImageBitmap(sourceBlob);
   const size = resolveSize(bitmap.width, bitmap.height, options.width, options.height, options.keepRatio);
 
   const canvas = document.createElement("canvas");
@@ -1233,6 +1471,27 @@ async function convertFile(file, options) {
     convertedSize: blob.size,
     blob,
   };
+}
+
+async function decodeHeicToJpegBlob(file) {
+  const converter = window.heic2any;
+  if (typeof converter !== "function") {
+    throw new Error("HEIC conversion engine is not ready. Please try again.");
+  }
+
+  const result = await converter({
+    blob: file,
+    toType: "image/jpeg",
+    quality: 1,
+  });
+
+  if (Array.isArray(result)) {
+    if (!result.length) {
+      throw new Error("Could not decode HEIC file");
+    }
+    return result[0];
+  }
+  return result;
 }
 
 function resolveSize(originalWidth, originalHeight, targetWidth, targetHeight, keepRatio) {
@@ -1317,7 +1576,7 @@ function renderResults() {
       button.type = "button";
       button.className = "ghost-btn";
       button.textContent = translate("download_btn");
-      button.addEventListener("click", () => downloadBlob(entry.blob, entry.name));
+      button.addEventListener("click", () => downloadBlob(entry.blob, entry.name, "single"));
       item.appendChild(button);
     }
 
@@ -1342,13 +1601,17 @@ function downloadAll() {
   if (!downloadable.length) return;
 
   downloadable.forEach((item, idx) => {
-    window.setTimeout(() => downloadBlob(item.blob, item.name), idx * 120);
+    window.setTimeout(() => downloadBlob(item.blob, item.name, "multiple"), idx * 120);
   });
 
   setStatus(translate("status_download_all"));
 }
 
-function downloadBlob(blob, fileName) {
+function downloadBlob(blob, fileName, singleOrZip = "single") {
+  trackEvent("download_click", {
+    page_type: resolvePageType(),
+    single_or_zip: singleOrZip,
+  });
   const link = document.createElement("a");
   const href = URL.createObjectURL(blob);
   link.href = href;
@@ -1486,6 +1749,21 @@ function getFileExtension(fileName) {
   const dotIndex = fileName.lastIndexOf(".");
   if (dotIndex < 0) return "";
   return fileName.slice(dotIndex + 1).toLowerCase();
+}
+
+function isHeicFile(file) {
+  if (!file) return false;
+  const ext = getFileExtension(file.name);
+  if (ext === "heic" || ext === "heif") return true;
+  const mime = (file.type || "").toLowerCase();
+  return mime === "image/heic" || mime === "image/heif";
+}
+
+function isSupportedImageFile(file) {
+  if (!file) return false;
+  if (supportedTypes.has(file.type)) return true;
+  const ext = getFileExtension(file.name);
+  return supportedImageExtensions.has(ext);
 }
 
 function isSupportedAudioFile(file) {
